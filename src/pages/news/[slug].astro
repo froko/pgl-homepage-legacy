@@ -1,0 +1,81 @@
+---
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+
+import Carousel from 'src/components/carousel';
+import { ArrowLeft } from 'src/components/icons';
+import type { TypeNewsFields } from 'src/contentful';
+import Layout from 'src/layouts/Layout.astro';
+import ContentService from 'src/lib/contentful';
+import contentfulImage from 'src/lib/contentful-image';
+
+export const getStaticPaths = async () => {
+  const newsItems = (await ContentService.instance.getEntriesByType<TypeNewsFields>('news')).map(
+    (entry) => entry.fields
+  );
+  const pages = newsItems.map((item) => ({
+    params: { slug: item.slug },
+    props: {
+      titel: item.titel,
+      pageTitle: `PGL | ${item.titel}`,
+      bilder: item.bilder
+        ?.filter((b) => b.fields)
+        .map((b) => ({
+          src: contentfulImage(b.fields.file.url, {
+            height: 380,
+            quality: 80,
+            fit: 'fill',
+            format: 'webp'
+          }),
+          alt: b.fields.title
+        })),
+      datum: new Date(item.datum).toLocaleDateString('de-CH', { year: 'numeric', month: '2-digit', day: '2-digit' }),
+      autor: item.autor,
+      content: documentToHtmlString(item.text)
+    }
+  }));
+
+  return pages;
+};
+
+const { titel, pageTitle, bilder, datum, autor, content } = Astro.props;
+---
+
+<Layout title={pageTitle}>
+  <main>
+    <div class="container">
+      <article>
+        <div class="mt-12 flex">
+          <span class="grow"></span>
+          <div class="flex duration-200 md:hover:scale-110">
+            <ArrowLeft />
+            <a href="/#news" class="w-100 text-2xl font-bold text-pgl-blue md:hover:cursor-pointer">
+              Zurück zu den News
+            </a>
+          </div>
+        </div>
+        {
+          bilder ? (
+            bilder.length === 1 ? (
+              <img src={bilder[0].src} alt={bilder[0].alt} class="max-h-[300px] lg:max-h-[380px]" />
+            ) : (
+              <Carousel images={bilder} client:visible />
+            )
+          ) : null
+        }
+        <h1 class="mt-0">{titel}</h1>
+        <p class="font-medium text-slate-900/60">{autor}, {datum}</p>
+        <p set:html={content} />
+
+        <div class="mt-6 flex">
+          <span class="grow"></span>
+          <div class="flex duration-200 md:hover:scale-110">
+            <ArrowLeft />
+            <a href="/#news" class="w-100 text-2xl font-bold text-pgl-blue md:hover:cursor-pointer">
+              Zurück zu den News
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,161 @@
+---
+import { ArrowLeft, Download, Play } from 'src/components/icons';
+import type { TypeAudioArchivFields } from 'src/contentful';
+import Layout from 'src/layouts/Layout.astro';
+import ContentService from 'src/lib/contentful';
+import contentfulImage from 'src/lib/contentful-image';
+
+const media = (await ContentService.instance.getEntriesByType<TypeAudioArchivFields>('audioArchiv')).map(
+  (entry) => entry.fields
+);
+---
+
+<Layout title="PGL | Tonträger">
+  <main class="bg-slate-200">
+    <div class="container">
+      <article>
+        <div class="mt-12 flex">
+          <span class="grow"></span>
+          <div class="flex duration-200 md:hover:scale-110">
+            <ArrowLeft />
+            <a href="/#media" class="w-100 text-2xl font-bold text-pgl-blue md:hover:cursor-pointer">
+              Zurück zur Galerie
+            </a>
+          </div>
+        </div>
+        <h1>Tonträger</h1>
+        {
+          media.map((m) => (
+            <div class="mt-12 grid grid-cols-1 place-content-start gap-8 lg:grid-cols-2">
+              <div>
+                <img
+                  src={contentfulImage(m.coverFront.fields, {
+                    height: 400,
+                    width: 400,
+                    quality: 80,
+                    fit: 'fill',
+                    format: 'webp'
+                  })}
+                  alt={m.titel}
+                  class="m-0"
+                />
+                {m.coverBack && (
+                  <img
+                    src={contentfulImage(m.coverBack?.fields, {
+                      height: 400,
+                      width: 400,
+                      quality: 80,
+                      fit: 'fill',
+                      format: 'webp'
+                    })}
+                    alt={m.titel}
+                    class="m-0 hidden lg:block"
+                  />
+                )}
+              </div>
+
+              <div>
+                {m.audioFiles.map((a) => (
+                  <div class="mb-2 flex w-full px-2 md:hover:bg-slate-300">
+                    <span>{a.fields.description}</span>
+                    <span class="grow" />
+                    <span
+                      data-title={a.fields.title}
+                      data-src={a.fields.file.url}
+                      class="play mr-4 mt-[6px] md:hover:cursor-pointer"
+                    >
+                      <Play />
+                    </span>
+                    <span
+                      data-title={a.fields.title}
+                      data-src={a.fields.file.url}
+                      class="download mt-[6px] hidden lg:block md:hover:cursor-pointer"
+                    >
+                      <Download />
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+        <div class="my-12 flex">
+          <span class="grow"></span>
+          <div class="flex duration-200 md:hover:scale-110">
+            <ArrowLeft />
+            <a href="/#media" class="w-100 text-2xl font-bold text-pgl-blue md:hover:cursor-pointer">
+              Zurück zur Galerie
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div id="player" class="fixed bottom-0 hidden w-screen bg-slate-300 p-4">
+      <div class="w-100 content-center justify-center lg:flex">
+        <span class="grow"></span>
+        <div class="flex content-evenly">
+          <p id="title" class="w-100 mr-8 mb-4 font-bold text-pgl-blue lg:mb-0 lg:mt-3 lg:text-xl"></p>
+          <span class="grow"></span>
+          <span id="close-mobile" class="-mt-1 text-3xl font-bold lg:hidden">&times;</span>
+        </div>
+        <audio id="audio" controls class="w-full lg:w-1/4"><track kind="captions" /></audio>
+        <span class="grow"></span>
+        <span id="close-desktop" class="mr-4 hidden text-3xl font-bold hover:cursor-pointer lg:mt-2 lg:block">
+          &times;
+        </span>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  const player = document.getElementById('player');
+  const title = document.getElementById('title');
+  const audio = document.getElementById('audio') as HTMLAudioElement;
+  const closeDesktop = document.getElementById('close-desktop');
+  const closeMobile = document.getElementById('close-mobile');
+  const playElements = document.querySelectorAll('.play');
+  const downloadElements = document.querySelectorAll('.download');
+  if (player && title && audio) {
+    playElements.forEach((element) => {
+      element.addEventListener('click', () => {
+        player.classList.remove('hidden');
+        title.innerText = element.getAttribute('data-title') ?? '';
+        audio.src = `https:${element.getAttribute('data-src')}`;
+        audio.play();
+      });
+    });
+    if (closeDesktop) {
+      closeDesktop.addEventListener('click', () => {
+        audio.pause();
+        player.classList.add('hidden');
+      });
+    }
+
+    if (closeMobile) {
+      closeMobile.addEventListener('click', () => {
+        audio.pause();
+        player.classList.add('hidden');
+      });
+    }
+  }
+
+  downloadElements.forEach((element) => {
+    element.addEventListener('click', () => {
+      const url = element.getAttribute('data-src') ?? '';
+      const filename = `${element.getAttribute('data-title')}.mp3`;
+      const xhr = new XMLHttpRequest();
+      xhr.responseType = 'blob';
+      xhr.onload = function () {
+        const a = document.createElement('a');
+        a.href = window.URL.createObjectURL(xhr.response);
+        a.download = filename;
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+      };
+      xhr.open('GET', url);
+      xhr.send();
+    });
+  });
+</script>

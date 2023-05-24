@@ -1,0 +1,41 @@
+---
+import { Download, Play } from 'src/components/icons';
+import type { TypeInternAufnahmenFields } from 'src/contentful';
+import ContentService from 'src/lib/contentful';
+
+const aufnahmen = (await ContentService.instance.getEntriesByType<TypeInternAufnahmenFields>('internAufnahmen')).map(
+  (entry) => entry.fields
+);
+
+const byName = (a: TypeInternAufnahmenFields, b: TypeInternAufnahmenFields): number => {
+  if (a.titel < b.titel) return -1;
+  if (a.titel > b.titel) return 1;
+  return 0;
+};
+---
+
+<h2>Aufnahmen</h2>
+<div class="w-full md:w-1/2">
+  {
+    aufnahmen.sort(byName).map((aufnahme) => (
+      <div class="flex w-full p-1 even:bg-white odd:bg-slate-100">
+        <span>{aufnahme.titel}</span>
+        <span class="grow" />
+        <span
+          data-title={aufnahme.audiofile?.fields.title}
+          data-src={aufnahme.audiofile?.fields.file.url}
+          class="play mr-4 mt-[4px] md:hover:cursor-pointer md:hover:scale-125 duration-300"
+        >
+          <Play />
+        </span>
+        <span
+          data-title={aufnahme.audiofile.fields.file.fileName}
+          data-src={aufnahme.audiofile.fields.file.url}
+          class="download mt-[4px] hidden lg:block md:hover:cursor-pointer md:hover:scale-125 duration-300"
+        >
+          <Download />
+        </span>
+      </div>
+    ))
+  }
+</div>

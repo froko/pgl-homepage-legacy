@@ -1,0 +1,21 @@
+---
+import Cart from './cart';
+import FacebookLogo from './facebook-logo';
+import Hamburger from './hamburger';
+import Navigation from './navigation';
+---
+
+<>
+  <header
+    class="fixed top-0 z-20 flex h-16 w-full items-center justify-between bg-white/50 px-2 backdrop-blur-sm md:px-4"
+  >
+    <a href="/">
+      <img src="/header.png" alt="header" class="h-4 md:h-8" />
+    </a>
+    <div class="grow"></div>
+    <Cart client:load />
+    <FacebookLogo client:load />
+    <Hamburger client:load />
+  </header>
+  <Navigation client:load />
+</>

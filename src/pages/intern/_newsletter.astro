@@ -1,0 +1,28 @@
+---
+import { Download } from 'src/components/icons';
+import type { TypeInternNewsletterFields } from 'src/contentful';
+import ContentService from 'src/lib/contentful';
+
+const newsletterEntries = (
+  await ContentService.instance.getEntriesByType<TypeInternNewsletterFields>('internNewsletter')
+).map((entry) => entry.fields);
+---
+
+<h2>Newsletter</h2>
+<div class="w-full md:w-1/2">
+  {
+    newsletterEntries.map((newsletter) => (
+      <div class="flex w-full p-1 even:bg-white odd:bg-slate-100">
+        <span>{newsletter.titel}</span>
+        <span class="grow" />
+        <span
+          data-title={newsletter.dokument.fields.file.fileName}
+          data-src={newsletter.dokument.fields.file.url}
+          class="download mt-[4px] md:hover:cursor-pointer md:hover:scale-125 duration-300"
+        >
+          <Download />
+        </span>
+      </div>
+    ))
+  }
+</div>

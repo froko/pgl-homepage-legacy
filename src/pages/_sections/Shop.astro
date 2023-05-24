@@ -1,0 +1,82 @@
+---
+import type { CartItem } from 'src/data';
+import ProductCard from './_ProductCard';
+
+const weinfest: CartItem = { article: 'PGL Suject "Weinfest"' };
+const jubiPin: CartItem = { article: 'Jubi-Pin', description: '35 x 35 mm / Silber', price: 10 };
+const pglPin: CartItem = { article: 'PGL-Pin', description: '25 x 21 mm / Silber', price: 10 };
+const halleluja: CartItem = {
+  article: 'CD "Halleluja" (2016)',
+  description: 'Der volle PGL Sound für zuhause',
+  price: 25
+};
+const chianti: CartItem = {
+  article: 'CD "Chianti" (2006)',
+  description: 'Der volle PGL Sound für zuhause',
+  price: 25
+};
+---
+
+<section id="shop" class="bg-slate-100">
+  <div class="container">
+    <article>
+      <h1>Shop</h1>
+      <ProductCard item={weinfest} vorschaubild="/weinfest.jpg" client:visible>
+        <span>
+          Preis für Kleid mit Grid pauschal <b>CHF 50.00</b>
+          <br />
+          Muss im Motel Waldibrücke abgeholt werden.
+          <br />
+          Auch einzelne Gride zur Deko möglich. Kontaktaufnahme via <a href="mailto:info@pgl.ch">info@pgl.ch</a>
+        </span>
+      </ProductCard>
+      <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <ProductCard item={jubiPin} vorschaubild="/jubi-pin.jpg" client:visible>
+          <span>{jubiPin.description}</span>
+        </ProductCard>
+        <ProductCard item={pglPin} vorschaubild="/pgl-pin.jpg" client:visible>
+          <span>{pglPin.description}</span>
+        </ProductCard>
+        <ProductCard item={halleluja} vorschaubild="/halleluja.jpg" client:visible>
+          <p class="m-0 text-sm">01. Halleluja</p>
+          <p class="m-0 text-sm">02. Mein Heimatland</p>
+          <p class="m-0 text-sm">03. Highland Cathedral</p>
+          <p class="m-0 text-sm">04. Sweet Caroline</p>
+          <p class="m-0 text-sm">05. Unter den Kastanien</p>
+          <p class="m-0 text-sm">06. Böhmischer Traum</p>
+          <p class="m-0 text-sm">07. Trompeten Echo</p>
+          <p class="m-0 text-sm">08. Sierra Nevada</p>
+          <p class="m-0 text-sm">09. Mein Herz es brennt</p>
+          <p class="m-0 text-sm">10. Ich sing ein Lied für dich</p>
+          <p class="m-0 text-sm">11. CH-Potpourri</p>
+          <p class="m-0 text-sm">12. Fernando</p>
+          <p class="m-0 text-sm">13. Und morgen früh küss ich dich wach</p>
+          <p class="m-0 text-sm">14. Gilberte</p>
+          <p class="m-0 text-sm">15. Maastricht</p>
+          <p class="m-0 text-sm">16. Atemlos</p>
+          <p class="m-0 text-sm">17. Im Örgelihuus</p>
+          <p class="m-0 text-sm">18. Das Spatzenlied</p>
+        </ProductCard>
+        <ProductCard item={chianti} vorschaubild="/chianti.jpg" client:visible>
+          <p class="m-0 text-sm">01. Chianti Wein</p>
+          <p class="m-0 text-sm">02. Alls was bruchsch esch Liebi</p>
+          <p class="m-0 text-sm">03. Lauchdorfer</p>
+          <p class="m-0 text-sm">04. Cia Amore</p>
+          <p class="m-0 text-sm">05. Chris Roberts-Medly</p>
+          <p class="m-0 text-sm">06. Eleni</p>
+          <p class="m-0 text-sm">07. Mariachi</p>
+          <p class="m-0 text-sm">08. Der Holzknecht</p>
+          <p class="m-0 text-sm">09. Nora gib Gas</p>
+          <p class="m-0 text-sm">10. Udo-Medly</p>
+          <p class="m-0 text-sm">11. Hansi-Medly</p>
+          <p class="m-0 text-sm">12. Elvis-Medly</p>
+          <p class="m-0 text-sm">13. Wandersmann</p>
+          <p class="m-0 text-sm">14. Oh Katharina</p>
+          <p class="m-0 text-sm">15. Zeig mir die Berge</p>
+          <p class="m-0 text-sm">16. Krainerli</p>
+          <p class="m-0 text-sm">17. Hans Spielmann</p>
+        </ProductCard>
+      </div>
+    </article>
+  </div>
+</section>

@@ -1,0 +1,140 @@
+---
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
+import { ArrowLeft } from 'src/components/icons';
+import type { TypeMediaFields } from 'src/contentful';
+import Layout from 'src/layouts/Layout.astro';
+import ContentService from 'src/lib/contentful';
+import contentfulImage from 'src/lib/contentful-image';
+
+export const getStaticPaths = async () => {
+  const newsItems = (await ContentService.instance.getEntriesByType<TypeMediaFields>('media')).map(
+    (entry) => entry.fields
+  );
+
+  const pages = newsItems.map((item) => ({
+    params: { slug: item.slug },
+    props: {
+      titel: item.titel,
+      pageTitle: `PGL | ${item.titel}`,
+      archiv: item.archiv,
+      bilder: item.bilder
+        .filter((b) => b.fields)
+        .map((b) => ({
+          previewSrc: contentfulImage(b, {
+            height: 154,
+            width: 154,
+            quality: 80,
+            fit: 'fill',
+            format: 'webp'
+          }),
+          origSrc: contentfulImage(b, {
+            width: 800,
+            height: 800,
+            quality: 80,
+            format: 'webp'
+          }),
+          alt: b.fields.title
+        })),
+      videos: item.youtubeLinks
+    }
+  }));
+
+  return pages;
+};
+
+const { titel, pageTitle, archiv, bilder, videos } = Astro.props;
+---
+
+<Layout title={pageTitle}>
+  <main>
+    <div class="container">
+      <article>
+        <div class="mt-12 flex">
+          <span class="grow"></span>
+          <div class="flex duration-200 md:hover:scale-110">
+            <ArrowLeft />
+            {
+              archiv ? (
+                <a href="/bilder-archiv" class="w-100 text-2xl font-bold text-pgl-blue md:hover:cursor-pointer">
+                  Zurück zum Archiv
+                </a>
+              ) : (
+                <a href="/#media" class="w-100 text-2xl font-bold text-pgl-blue md:hover:cursor-pointer">
+                  Zurück zur Galerie
+                </a>
+              )
+            }
+          </div>
+        </div>
+        <h1>{titel}</h1>
+        <div class="gallery">
+          {
+            bilder.map((b: { previewSrc: string; origSrc: string; alt: string }) => (
+              <a href={b.origSrc}>
+                <img src={b.previewSrc} alt={b.alt} />
+              </a>
+            ))
+          }
+        </div>
+        {
+          videos &&
+            videos.map((link: string) => (
+              <div class="relative my-2 h-0 w-full pb-[56.25%]">
+                <iframe
+                  title="video"
+                  class="absolute top-0 left-0 h-full w-full"
+                  src={link}
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                />
+              </div>
+            ))
+        }
+        <div class="mt-6 flex">
+          <span class="grow"></span>
+          <div class="flex duration-200 md:hover:scale-110">
+            <ArrowLeft />
+            {
+              archiv ? (
+                <a href="/bilder-archiv" class="w-100 text-2xl font-bold text-pgl-blue md:hover:cursor-pointer">
+                  Zurück zum Archiv
+                </a>
+              ) : (
+                <a href="/#media" class="w-100 text-2xl font-bold text-pgl-blue md:hover:cursor-pointer">
+                  Zurück zur Galerie
+                </a>
+              )
+            }
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+</Layout>
+
+<script type="application/javascript">
+  var global = window;
+</script>
+
+<script>
+  import SimpleLightbox from 'simplelightbox';
+  import { isHidden } from '../../navigationStore';
+
+  const gallery = new SimpleLightbox('.gallery a', {
+    showCounter: false
+  });
+
+  gallery.on('show.simplelightbox', () => isHidden.set(true));
+  gallery.on('closed.simplelightbox', () => isHidden.set(false));
+</script>
+
+<style>
+  .gallery {
+    @apply grid grid-cols-3 gap-1 md:grid-cols-4 lg:grid-cols-5;
+  }
+
+  .gallery a img {
+    @apply m-0;
+  }
+</style>

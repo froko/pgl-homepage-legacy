@@ -1,0 +1,28 @@
+---
+import { Download } from 'src/components/icons';
+import type { TypeInternAllgemeinFields } from 'src/contentful';
+import ContentService from 'src/lib/contentful';
+
+const documents = (await ContentService.instance.getEntriesByType<TypeInternAllgemeinFields>('internAllgemein')).map(
+  (entry) => entry.fields
+);
+---
+
+<h2>Allgemein</h2>
+<div class="w-full md:w-1/2">
+  {
+    documents.map((document) => (
+      <div class="flex w-full p-1 even:bg-white odd:bg-slate-100">
+        <span>{document.titel}</span>
+        <span class="grow" />
+        <span
+          data-title={document.dokument.fields.file.fileName}
+          data-src={document.dokument.fields.file.url}
+          class="download mt-[4px] md:hover:cursor-pointer md:hover:scale-125 duration-300"
+        >
+          <Download />
+        </span>
+      </div>
+    ))
+  }
+</div>

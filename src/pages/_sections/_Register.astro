@@ -1,0 +1,16 @@
+---
+import type { TypeMitgliederFields } from 'src/contentful';
+import Portrait from './_Portrait.astro';
+
+export interface Props {
+  title: string;
+  mitglieder: TypeMitgliederFields[];
+}
+
+const { title, mitglieder } = Astro.props;
+---
+
+<h3 class="mb-4 text-center text-2xl font-semibold lg:text-3xl">{title}</h3>
+<div class="mx-2 mb-8 flex flex-wrap justify-center lg:mx-4 lg:mb-12">
+  {mitglieder.map((m) => <Portrait {...m} />)}
+</div>

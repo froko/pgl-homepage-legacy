@@ -1,18 +1,22 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import About from './_sections/About.astro';
+import Agenda from './_sections/Agenda.astro';
+import Contact from './_sections/Contact';
+import Hero from './_sections/Hero.astro';
+import Media from './_sections/Media.astro';
+import News from './_sections/News.astro';
+import Shop from './_sections/Shop.astro';
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <article>
-      <h1 class="text-pgl-blue text-4xl font-bold">PGL Homepage</h1>
-      <p>Welcome to Astro!</p>
-    </article>
-  </body>
-</html>
+<Layout title="Pilatusgeister Luzern">
+  <main>
+    <Hero />
+    <News />
+    <Agenda />
+    <About />
+    <Media />
+    <Shop />
+    <Contact client:visible />
+  </main>
+</Layout>

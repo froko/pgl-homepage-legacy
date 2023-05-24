@@ -1,0 +1,22 @@
+---
+import { ArrowLeft } from 'src/components/icons';
+import Layout from 'src/layouts/Layout.astro';
+import Checkout from './_checkout';
+---
+
+<Layout title="PGL | Checkout">
+  <main>
+    <div class="container">
+      <article>
+        <div class="mt-12 flex">
+          <span class="grow"></span>
+          <div class="flex duration-200 md:hover:scale-110">
+            <ArrowLeft />
+            <a href="/#shop" class="w-100 text-2xl font-bold text-pgl-blue md:hover:cursor-pointer">Zurück zum Shop</a>
+          </div>
+        </div>
+        <Checkout client:load />
+      </article>
+    </div>
+  </main>
+</Layout>

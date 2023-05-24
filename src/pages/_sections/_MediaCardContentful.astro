@@ -1,0 +1,33 @@
+---
+import type { TypeMediaFields } from 'src/contentful';
+import contentfulImage from 'src/lib/contentful-image';
+
+export interface Props extends TypeMediaFields {}
+
+const { slug, titel, vorschaubild } = Astro.props;
+const link = `/media/${slug}`;
+const vorschaubildUrl = vorschaubild.fields.file.url;
+const height = 300;
+const witdh = 400;
+---
+
+<div class="border-b-4 border-pgl-blue shadow-xl duration-300 sm:bg-white md:hover:scale-105 md:hover:shadow-2xl">
+  <a href={link}>
+    <img
+      src={contentfulImage(vorschaubildUrl, {
+        height: height,
+        width: witdh,
+        quality: 80,
+        fit: 'fill',
+        format: 'webp'
+      })}
+      alt={titel}
+      class="m-0 rounded-t-md object-cover"
+      height={height}
+      width={witdh}
+    />
+    <div class="bg-white p-4">
+      <span class="text-xl font-semibold text-pgl-blue">{titel}</span>
+    </div>
+  </a>
+</div>

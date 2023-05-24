@@ -1,0 +1,33 @@
+---
+import { ads } from 'data/ads';
+---
+
+<section id="hero" class="relative bg-pgl-blue">
+  <img src="gesamtfoto-2023.jpg" alt="Gesamtfoto" class="hidden w-full lg:block" />
+  <div class="container flex justify-around lg:hidden">
+    <div>
+      <img src="/hero.png" alt="logo" class="mx-auto mt-12 h-48" />
+      <div class="mt-2 text-center text-2xl font-bold text-white">
+        <p>Fasnacht im Herzen.</p>
+        <p>Seit 1961.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="py-2">
+    <div class="flex flex-wrap justify-center">
+      {
+        ads.map((ad) => (
+          <a href={ad.href}>
+            <img
+              src={'/ads/' + ad.src}
+              alt={ad.alt}
+              height="64px"
+              class="m-1 h-12 rounded-md bg-white p-2 shadow-lg hover:drop-shadow-xl lg:m-2 lg:h-16"
+            />
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

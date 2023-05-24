@@ -1,0 +1,43 @@
+---
+import type { Asset } from 'contentful';
+import contentfulImage from 'src/lib/contentful-image';
+
+export interface Props {
+  name: string;
+  eintrittsjahr?: number | undefined;
+  funktion?: string | undefined;
+  portrait: Asset;
+}
+
+const { name, eintrittsjahr, funktion, portrait } = Astro.props;
+const portraitSize = 220;
+const portraitUrl = portrait.fields.file.url;
+---
+
+<div class="m-2 flex w-24 flex-col items-center lg:w-56">
+  <img
+    src={contentfulImage(portraitUrl, {
+      quality: 80,
+      height: portraitSize,
+      width: portraitSize,
+      fit: 'fill',
+      radius: 'max',
+      format: 'webp'
+    })}
+    alt={name}
+    height={portraitSize}
+    width={portraitSize}
+    class="rounded-full shadow-xl"
+  />
+  <div class="mb-4 lg:mb-8">
+    <p class="mt-2 text-center font-bold leading-6 text-pgl-blue">{name}</p>
+    {
+      eintrittsjahr ? (
+        <p class="text-center text-xs leading-6 text-slate-600 lg:text-base">dabei seit {eintrittsjahr}</p>
+      ) : (
+        <p class="text-center text-xs leading-6 text-slate-600 lg:text-base">Anwärter</p>
+      )
+    }
+    {funktion && <p class="text-center text-xs leading-6 text-slate-600 lg:text-base italic">{funktion}</p>}
+  </div>
+</div>
