@@ -6,5 +6,7 @@ export const NavigationItems: NavigationItem[] = [
   { name: 'Über uns', to: '/#about' },
   { name: 'Galerie', to: '/#media' },
   { name: 'Shop', to: '/#shop' },
-  { name: 'Kontakt', to: '/#contact' }
+  { name: 'Kontakt', to: '/#contact' },
+  { name: 'Gästebuch', to: '/guestbook' },
+  { name: 'Interner Bereich', to: '/intern'}
 ];

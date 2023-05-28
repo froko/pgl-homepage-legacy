@@ -1,0 +1,19 @@
+---
+import Layout from 'src/layouts/Layout.astro';
+import { GuestbookEntries } from './guestbook-entries';
+---
+
+<Layout title="Guestbook">
+  <main>
+    <div class="container">
+      <article>
+        <h1>G&auml;stebuch</h1>
+        <p>
+          Wir freuen uns &uuml;ber deinen Beitrag. Bitte beachte, dass wir das G&auml;stebuch moderieren und einzelne
+          Beitr&auml;ge ohne Nennung von Gr&uuml;nden auch wieder l&ouml;schen k&ouml;nnen.
+        </p>
+        <GuestbookEntries client:load />
+      </article>
+    </div>
+  </main>
+</Layout>
