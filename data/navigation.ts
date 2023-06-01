@@ -8,5 +8,5 @@ export const NavigationItems: NavigationItem[] = [
   { name: 'Shop', to: '/#shop' },
   { name: 'Kontakt', to: '/#contact' },
   { name: 'Gästebuch', to: '/guestbook' },
-  { name: 'Interner Bereich', to: '/intern'}
+  { name: 'Interner Bereich', to: '/intern' }
 ];
