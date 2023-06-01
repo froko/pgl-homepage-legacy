@@ -1,4 +1,5 @@
 ---
+import type { Asset } from 'contentful';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 import { ArrowLeft } from 'src/components/icons';
@@ -9,18 +10,18 @@ import contentfulImage from 'src/lib/contentful-image';
 
 export const getStaticPaths = async () => {
   const newsItems = (await ContentService.instance.getEntriesByType<TypeMediaFields>('media')).map(
-    (entry) => entry.fields
+    (entry: any) => entry.fields
   );
 
-  const pages = newsItems.map((item) => ({
+  const pages = newsItems.map((item: any) => ({
     params: { slug: item.slug },
     props: {
       titel: item.titel,
       pageTitle: `PGL | ${item.titel}`,
       archiv: item.archiv,
       bilder: item.bilder
-        .filter((b) => b.fields)
-        .map((b) => ({
+        .filter((b: Asset) => b.fields)
+        .map((b: any) => ({
           previewSrc: contentfulImage(b, {
             height: 154,
             width: 154,
@@ -60,7 +61,11 @@ const { titel, pageTitle, archiv, bilder, videos } = Astro.props;
                   Zurück zum Archiv
                 </a>
               ) : (
-                <a href="/#media" class="w-100 text-2xl font-bold text-pgl-blue md:hover:cursor-pointer">
+                <a
+                  id="backLinkTop"
+                  href="/#media"
+                  class="w-100 text-2xl font-bold text-pgl-blue md:hover:cursor-pointer"
+                >
                   Zurück zur Galerie
                 </a>
               )
@@ -101,7 +106,11 @@ const { titel, pageTitle, archiv, bilder, videos } = Astro.props;
                   Zurück zum Archiv
                 </a>
               ) : (
-                <a href="/#media" class="w-100 text-2xl font-bold text-pgl-blue md:hover:cursor-pointer">
+                <a
+                  id="backLinkBottom"
+                  href="/#media"
+                  class="w-100 text-2xl font-bold text-pgl-blue md:hover:cursor-pointer"
+                >
                   Zurück zur Galerie
                 </a>
               )
@@ -127,6 +136,24 @@ const { titel, pageTitle, archiv, bilder, videos } = Astro.props;
 
   gallery.on('show.simplelightbox', () => isHidden.set(true));
   gallery.on('closed.simplelightbox', () => isHidden.set(false));
+</script>
+
+<script>
+  const backLinkTop = document.getElementById('backLinkTop') as HTMLAnchorElement | null;
+  const backLinkBottom = document.getElementById('backLinkBottom') as HTMLAnchorElement | null;
+  const previousRoute = document.referrer;
+
+  if (previousRoute.includes('news')) {
+    if (backLinkTop) {
+      backLinkTop.href = previousRoute;
+      backLinkTop.innerHTML = 'Zur&uuml;ck zum Newsbeitrag';
+    }
+
+    if (backLinkBottom) {
+      backLinkBottom.href = previousRoute;
+      backLinkBottom.innerHTML = 'Zur&uuml;ck zum Newsbeitrag';
+    }
+  }
 </script>
 
 <style>
