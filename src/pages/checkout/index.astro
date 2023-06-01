@@ -1,5 +1,5 @@
 ---
-import { ArrowLeft } from 'src/components/icons';
+import ArrowLink from 'src/components/arrow-link.astro';
 import Layout from 'src/layouts/Layout.astro';
 import Checkout from './_checkout';
 ---
@@ -8,13 +8,7 @@ import Checkout from './_checkout';
   <main>
     <div class="container">
       <article>
-        <div class="mt-12 flex">
-          <span class="grow"></span>
-          <div class="flex duration-200 md:hover:scale-110">
-            <ArrowLeft />
-            <a href="/#shop" class="w-100 text-2xl font-bold text-pgl-blue md:hover:cursor-pointer">Zurück zum Shop</a>
-          </div>
-        </div>
+        <ArrowLink style="mt-12" href="/#shop" content="Zurück zum Shop" />
         <Checkout client:load />
       </article>
     </div>

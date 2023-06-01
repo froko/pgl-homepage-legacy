@@ -1,12 +1,13 @@
 ---
-import { ArrowLeft, Download, Play } from 'src/components/icons';
+import ArrowLink from 'src/components/arrow-link.astro';
+import { Download, Play } from 'src/components/icons';
 import type { TypeAudioArchivFields } from 'src/contentful';
 import Layout from 'src/layouts/Layout.astro';
 import ContentService from 'src/lib/contentful';
 import contentfulImage from 'src/lib/contentful-image';
 
 const media = (await ContentService.instance.getEntriesByType<TypeAudioArchivFields>('audioArchiv')).map(
-  (entry) => entry.fields
+  (entry: any) => entry.fields
 );
 ---
 
@@ -14,18 +15,10 @@ const media = (await ContentService.instance.getEntriesByType<TypeAudioArchivFie
   <main class="bg-slate-200">
     <div class="container">
       <article>
-        <div class="mt-12 flex">
-          <span class="grow"></span>
-          <div class="flex duration-200 md:hover:scale-110">
-            <ArrowLeft />
-            <a href="/#media" class="w-100 text-2xl font-bold text-pgl-blue md:hover:cursor-pointer">
-              Zurück zur Galerie
-            </a>
-          </div>
-        </div>
+        <ArrowLink style="mt-12" href="/#media" content="Zurück zur Galerie" />
         <h1>Tonträger</h1>
         {
-          media.map((m) => (
+          media.map((m: any) => (
             <div class="mt-12 grid grid-cols-1 place-content-start gap-8 lg:grid-cols-2">
               <div>
                 <img
@@ -55,7 +48,7 @@ const media = (await ContentService.instance.getEntriesByType<TypeAudioArchivFie
               </div>
 
               <div>
-                {m.audioFiles.map((a) => (
+                {m.audioFiles.map((a: any) => (
                   <div class="mb-2 flex w-full px-2 md:hover:bg-slate-300">
                     <span>{a.fields.description}</span>
                     <span class="grow" />
@@ -79,15 +72,7 @@ const media = (await ContentService.instance.getEntriesByType<TypeAudioArchivFie
             </div>
           ))
         }
-        <div class="my-12 flex">
-          <span class="grow"></span>
-          <div class="flex duration-200 md:hover:scale-110">
-            <ArrowLeft />
-            <a href="/#media" class="w-100 text-2xl font-bold text-pgl-blue md:hover:cursor-pointer">
-              Zurück zur Galerie
-            </a>
-          </div>
-        </div>
+        <ArrowLink style="mt-6" href="/#media" content="Zurück zur Galerie" />
       </article>
     </div>
     <div id="player" class="fixed bottom-0 hidden w-screen bg-slate-300 p-4">

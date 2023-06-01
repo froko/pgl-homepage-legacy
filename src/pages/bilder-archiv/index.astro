@@ -1,28 +1,20 @@
 ---
-import { ArrowLeft } from 'src/components/icons';
+import ArrowLink from 'src/components/arrow-link.astro';
 import type { TypeMediaFields } from 'src/contentful';
 import Layout from 'src/layouts/Layout.astro';
 import ContentService from 'src/lib/contentful';
 import BilderArchivJahr from './_bilder-archiv-jahr.astro';
 
 const media = (await ContentService.instance.getEntriesByType<TypeMediaFields>('media'))
-  .map((entry) => entry.fields)
-  .filter((m) => m.archiv);
+  .map((entry: any) => entry.fields)
+  .filter((m: any) => m.archiv);
 ---
 
 <Layout title="PGL | Archiv">
   <main class="bg-slate-200">
     <div class="container">
       <article>
-        <div class="mt-12 flex">
-          <span class="grow"></span>
-          <div class="flex duration-200 md:hover:scale-110">
-            <ArrowLeft />
-            <a href="/#media" class="w-100 text-2xl font-bold text-pgl-blue md:hover:cursor-pointer">
-              Zurück zur Galerie
-            </a>
-          </div>
-        </div>
+        <ArrowLink style="mt-12" href="/#media" content="Zurück zur Galerie" />
         <h1>Vergangene Jahre</h1>
         <BilderArchivJahr jahr={2023} media={media} />
         <BilderArchivJahr jahr={2022} media={media} />
@@ -33,15 +25,7 @@ const media = (await ContentService.instance.getEntriesByType<TypeMediaFields>('
         <BilderArchivJahr jahr={2017} media={media} />
         <BilderArchivJahr jahr={2016} media={media} />
         <BilderArchivJahr jahr={2015} media={media} />
-        <div class="mt-6 flex">
-          <span class="grow"></span>
-          <div class="flex duration-200 md:hover:scale-110">
-            <ArrowLeft />
-            <a href="/#media" class="w-100 text-2xl font-bold text-pgl-blue md:hover:cursor-pointer">
-              Zurück zur Galerie
-            </a>
-          </div>
-        </div>
+        <ArrowLink style="mt-6" href="/#media" content="Zurück zur Galerie" />
       </article>
     </div>
   </main>

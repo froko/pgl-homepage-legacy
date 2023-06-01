@@ -2,9 +2,10 @@
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import type { Asset } from 'contentful';
 
+import ArrowLink from 'src/components/arrow-link.astro';
 import Carousel from 'src/components/carousel';
-import { ArrowLeft, ArrowRight } from 'src/components/icons';
-import type { TypeNews, TypeNewsFields } from 'src/contentful';
+import { ArrowRight } from 'src/components/icons';
+import type { TypeNewsFields } from 'src/contentful';
 import Layout from 'src/layouts/Layout.astro';
 import ContentService from 'src/lib/contentful';
 import contentfulImage from 'src/lib/contentful-image';
@@ -46,15 +47,7 @@ const { titel, pageTitle, bilder, mediaSlug, datum, autor, content } = Astro.pro
   <main>
     <div class="container">
       <article>
-        <div class="mt-12 flex">
-          <span class="grow"></span>
-          <div class="flex duration-200 md:hover:scale-110">
-            <ArrowLeft />
-            <a href="/#news" class="w-100 text-2xl font-bold text-pgl-blue md:hover:cursor-pointer">
-              Zurück zu den News
-            </a>
-          </div>
-        </div>
+        <ArrowLink style="mt-12" href="/#news" content="Zurück zu den News" />
         {
           bilder ? (
             bilder.length === 1 ? (
@@ -81,15 +74,7 @@ const { titel, pageTitle, bilder, mediaSlug, datum, autor, content } = Astro.pro
         <p class="font-medium text-slate-900/60">{autor}, {datum}</p>
         <p set:html={content} />
 
-        <div class="mt-6 flex">
-          <span class="grow"></span>
-          <div class="flex duration-200 md:hover:scale-110">
-            <ArrowLeft />
-            <a href="/#news" class="w-100 text-2xl font-bold text-pgl-blue md:hover:cursor-pointer">
-              Zurück zu den News
-            </a>
-          </div>
-        </div>
+        <ArrowLink style="mt-6" href="/#news" content="Zurück zu den News" />
       </article>
     </div>
   </main>
