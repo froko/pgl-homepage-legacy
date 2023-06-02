@@ -12,7 +12,6 @@ const auth = isBrowser
     })
   : {};
 
-``;
 export const isAuthenticated = () => {
   if (!isBrowser) {
     return;
@@ -35,7 +34,10 @@ export const logout = () => {
   }
 
   sessionStorage.removeItem('expires_at');
-  auth.logout();
+  auth.logout({
+    returnTo: import.meta.env.PUBLIC_DOMAIN,
+    clientID: import.meta.env.PUBLIC_AUTH0_CLIENTID
+  });
 };
 
 const setSession =
