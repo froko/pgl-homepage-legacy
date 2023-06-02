@@ -8,7 +8,7 @@ export const GuestbookEntries = () => {
   const getEntries = async () => {
     const response = await fetch('https://pgl-api.vercel.app/api/guestbook');
     const guestbookEntries = await response.json();
-    setEntries(guestbookEntries.filter((e: any) => e.published));
+    setEntries(guestbookEntries);
   };
 
   useEffect(() => {
