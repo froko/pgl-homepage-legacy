@@ -52,5 +52,3 @@ jobs:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USER }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          PUBLIC_AUTH0_DOMAIN: ${{ secrets.PUBLIC_AUTH0_DOMAIN }}
-          PUBLIC_AUTH0_CLIENTID: ${{ secrets.PUBLIC_AUTH0_CLIENTID }}
