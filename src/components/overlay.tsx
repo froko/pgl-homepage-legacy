@@ -20,7 +20,11 @@ const Overlay = (props: { children: any }) => {
   });
 
   return (
-    <div className={`${$isOpen ? '' : 'hidden'} fixed top-16 z-10 h-full w-full bg-white/80 backdrop-blur-sm `}>
+    <div
+      className={`${
+        $isOpen ? '' : 'hidden'
+      } fixed top-16 z-10 h-full w-full bg-white/80 backdrop-blur-sm pb-32 md:pb-0`}
+    >
       <div className="flex h-full max-h-full flex-col">
         <div className="flex flex-grow overflow-hidden">{props.children}</div>
       </div>
