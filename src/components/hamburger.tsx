@@ -7,6 +7,7 @@ const Hamburger = () => {
 
   return $isHidden ? null : (
     <button
+      aria-label="Toggle menu"
       className={'relative h-8 w-8 focus:outline-none duration-200 md:hover:scale-125'}
       onClick={() => isOpen.set(!$isOpen)}
     >
