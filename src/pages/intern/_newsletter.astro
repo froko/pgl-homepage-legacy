@@ -9,20 +9,18 @@ const newsletterEntries = (
 ---
 
 <h2>Newsletter</h2>
-<div class="w-full md:w-1/2">
-  {
-    newsletterEntries.map((newsletter) => (
-      <div class="flex w-full p-1 even:bg-white odd:bg-slate-100">
-        <span>{newsletter.titel}</span>
-        <span class="grow" />
-        <span
-          data-title={newsletter.dokument.fields.file.fileName}
-          data-src={newsletter.dokument.fields.file.url}
-          class="download mt-[4px] md:hover:cursor-pointer md:hover:scale-125 duration-300"
-        >
-          <Download />
-        </span>
-      </div>
-    ))
-  }
-</div>
+{
+  newsletterEntries.map((newsletter) => (
+    <div class="flex w-full p-1 even:bg-white odd:bg-slate-100 hover:bg-slate-200">
+      <span>{newsletter.titel}</span>
+      <span class="grow" />
+      <span
+        data-title={newsletter.dokument.fields.file.fileName}
+        data-src={newsletter.dokument.fields.file.url}
+        class="download mt-[4px] md:hover:cursor-pointer md:hover:scale-125 duration-300"
+      >
+        <Download />
+      </span>
+    </div>
+  ))
+}

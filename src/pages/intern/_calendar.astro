@@ -5,23 +5,25 @@ import ContentService from 'src/lib/contentful';
 const calendarEntries = (
   await ContentService.instance.getEntriesByType<TypeInternKalenderFields>('internKalender')
 ).map((entry) => entry.fields);
+
+const byDate = (a: TypeInternKalenderFields, b: TypeInternKalenderFields) => {
+  return new Date(a.datum).getTime() - new Date(b.datum).getTime();
+};
 ---
 
 <h2>Kalender</h2>
-<div class="w-full md:w-1/2">
-  {
-    calendarEntries.map((calendarEntry) => (
-      <div class="w-full p-1 even:bg-white odd:bg-slate-100">
-        <div class="font-bold">
-          {new Date(calendarEntry.datum).toLocaleDateString('de-CH', {
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit'
-          })}
-          : {calendarEntry.anlass}
-        </div>
-        <span>{calendarEntry.ort}</span>
+{
+  calendarEntries.sort(byDate).map((calendarEntry) => (
+    <div class="w-full p-1 even:bg-white odd:bg-slate-100 md:flex">
+      <div class="font-bold md:mr-4">
+        {new Date(calendarEntry.datum).toLocaleDateString('de-CH', {
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit'
+        })}
+        : {calendarEntry.anlass}
       </div>
-    ))
-  }
-</div>
+      <span>{calendarEntry.ort}</span>
+    </div>
+  ))
+}
