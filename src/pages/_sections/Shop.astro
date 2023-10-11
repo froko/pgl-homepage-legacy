@@ -2,7 +2,6 @@
 import type { CartItem } from 'src/data';
 import ProductCard from './_ProductCard';
 
-const weinfest: CartItem = { article: 'PGL Sujet "Weinfest"' };
 const jubiPin: CartItem = { article: 'Jubi-Pin', description: '35 x 35 mm / Silber', price: 10 };
 const pglPin: CartItem = { article: 'PGL-Pin', description: '25 x 21 mm / Silber', price: 10 };
 const halleluja: CartItem = {
@@ -21,15 +20,6 @@ const chianti: CartItem = {
   <div class="container">
     <article>
       <h1>Shop</h1>
-      <ProductCard item={weinfest} vorschaubild="/weinfest.webp" client:visible>
-        <span>
-          Preis für Kleid mit Grind pauschal <b>CHF 50.00</b>
-          <br />
-          Muss im Motel Waldibrücke abgeholt werden.
-          <br />
-          Auch einzelne Grinde zur Deko möglich. Kontaktaufnahme via <a href="mailto:info@pgl.ch">info@pgl.ch</a>
-        </span>
-      </ProductCard>
       <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
         <ProductCard item={jubiPin} vorschaubild="/jubi-pin.webp" client:visible>
           <span>{jubiPin.description}</span>
