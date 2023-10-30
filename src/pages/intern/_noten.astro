@@ -1,0 +1,26 @@
+---
+import { Download } from 'src/components/icons';
+import type { TypeInternNotenFields } from 'src/contentful';
+import ContentService from 'src/lib/contentful';
+
+const notenEntries = (await ContentService.instance.getEntriesByType<TypeInternNotenFields>('internNoten')).map(
+  (entry) => entry.fields
+);
+---
+
+<h2>Newsletter</h2>
+{
+  notenEntries.map((noten) => (
+    <div class="flex w-full p-1 even:bg-white odd:bg-slate-100 hover:bg-slate-200">
+      <span>{noten.titel}</span>
+      <span class="grow" />
+      <span
+        data-title={noten.dokument.fields.file.fileName}
+        data-src={noten.dokument.fields.file.url}
+        class="download mt-[4px] md:hover:cursor-pointer md:hover:scale-125 duration-300"
+      >
+        <Download />
+      </span>
+    </div>
+  ))
+}
