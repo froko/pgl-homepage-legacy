@@ -60,9 +60,9 @@ const CheckoutForm = (props: { items: CartItemWithQuantity[]; totalCost: number 
         zusätzliche Kosten entstehen.
       </p>
       <p>Versand nur gegen Vorauszahlung. Unsere Bankverbindung lautet:</p>
-      <p className="font-bold mb-0">IBAN: CH55 0900 0000 6050 6507 7</p>
-      <p className="font-bold my-0">Guggenmusig Pilatusgeister</p>
-      <p className="font-bold mt-0">6500 Luzern</p>
+      <p className="mb-0 font-bold">IBAN: CH55 0900 0000 6050 6507 7</p>
+      <p className="my-0 font-bold">Guggenmusig Pilatusgeister</p>
+      <p className="mt-0 font-bold">6500 Luzern</p>
       <p>Die Liste der bestellten Artikel sowie die Zahlungsinformationen stellen wir dir zusätzlich per Email zu.</p>
       <form className="-mx-2 w-full" onSubmit={handleSubmit}>
         <div className="flex flex-wrap">
@@ -94,7 +94,7 @@ const CheckoutForm = (props: { items: CartItemWithQuantity[]; totalCost: number 
             <label htmlFor="phone">Telefon</label>
             <input id="phone" name="phone" type="tel" className={formStyle} onChange={handleChange} />
           </div>
-          <div className="mt-4 ml-2">
+          <div className="ml-2 mt-4">
             <Button type="submit" loading={loading}>
               Bestellung abschicken
             </Button>

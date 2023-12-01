@@ -23,7 +23,7 @@ const ProductCard = (props: { item: CartItem; vorschaubild: string; children: an
       <img src={vorschaubild} alt={item.article} className="m-0" />
       <div className="relative p-4">
         {children}
-        {item.price && <span className="absolute top-4 right-4 font-bold">CHF {item.price.toFixed(2)}</span>}
+        {item.price && <span className="absolute right-4 top-4 font-bold">CHF {item.price.toFixed(2)}</span>}
       </div>
     </div>
   );

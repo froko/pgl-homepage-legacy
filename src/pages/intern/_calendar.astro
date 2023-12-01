@@ -14,7 +14,7 @@ const byDate = (a: TypeInternKalenderFields, b: TypeInternKalenderFields) => {
 <h2>Kalender</h2>
 {
   calendarEntries.sort(byDate).map((calendarEntry) => (
-    <div class="w-full p-1 even:bg-white odd:bg-slate-100">
+    <div class="w-full p-1 odd:bg-slate-100 even:bg-white">
       <div class="font-bold md:mr-4">
         {new Date(calendarEntry.datum).toLocaleDateString('de-CH', {
           year: 'numeric',

@@ -66,11 +66,11 @@ const Contact = () => {
                   name="message"
                   rows={5}
                   required
-                  className="w-full appearance-none rounded border py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
+                  className="w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
                   onChange={handleChange}
                 ></textarea>
               </div>
-              <div className="mt-4 ml-2">
+              <div className="ml-2 mt-4">
                 {thankYou ? (
                   <span>Vielen Dank für deine Nachricht!</span>
                 ) : (

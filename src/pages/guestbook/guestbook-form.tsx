@@ -45,7 +45,7 @@ export const GuestbookForm = (props: { reload: () => void }) => {
     'w-full appearance-none rounded border py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none';
 
   return (
-    <form className="p-4 w-full bg-slate-200" onSubmit={handleSubmit}>
+    <form className="w-full bg-slate-200 p-4" onSubmit={handleSubmit}>
       <div className="flex flex-wrap">
         {!thankYou && (
           <div className="mb-2 w-full px-2 md:w-1/2">
@@ -75,7 +75,7 @@ export const GuestbookForm = (props: { reload: () => void }) => {
         {thankYou ? (
           <span>Vielen Dank für deine Nachricht!</span>
         ) : (
-          <div className="mt-4 ml-2">
+          <div className="ml-2 mt-4">
             <Button type="submit" loading={loading}>
               Senden
             </Button>

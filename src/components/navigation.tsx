@@ -5,11 +5,11 @@ import Overlay from './overlay';
 const Navigation = () => {
   return (
     <Overlay>
-      <ul className="max-h-[calc(100vh-4rem)] mx-auto flex flex-col text-center place-content-evenly">
+      <ul className="mx-auto flex max-h-[calc(100vh-4rem)] flex-col place-content-evenly text-center">
         {NavigationItems.map((link, key) => (
           <li key={`menu_mobile_link${key}`}>
             <a
-              className="text-2xl font-bold text-pgl-blue duration-300 lg:text-3xl lg:text-black md:hover:text-4xl md:hover:text-pgl-blue"
+              className="text-2xl font-bold text-pgl-blue duration-300 md:hover:text-4xl md:hover:text-pgl-blue lg:text-3xl lg:text-black"
               href={link.to}
               onClick={() => isOpen.set(false)}
             >

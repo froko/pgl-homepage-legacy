@@ -17,20 +17,20 @@ const byName = (a: TypeInternAufnahmenFields, b: TypeInternAufnahmenFields): num
 <h2>Aufnahmen</h2>
 {
   aufnahmen.sort(byName).map((aufnahme) => (
-    <div class="flex w-full p-1 even:bg-white odd:bg-slate-100 hover:bg-slate-200">
+    <div class="flex w-full p-1 odd:bg-slate-100 even:bg-white hover:bg-slate-200">
       <span>{aufnahme.titel}</span>
       <span class="grow" />
       <span
         data-title={aufnahme.audiofile?.fields.title}
         data-src={aufnahme.audiofile?.fields.file.url}
-        class="play mr-4 mt-[4px] md:hover:cursor-pointer md:hover:scale-125 duration-300"
+        class="play mr-4 mt-[4px] duration-300 md:hover:scale-125 md:hover:cursor-pointer"
       >
         <Play />
       </span>
       <span
         data-title={aufnahme.audiofile.fields.file.fileName}
         data-src={aufnahme.audiofile.fields.file.url}
-        class="download mt-[4px] hidden lg:block md:hover:cursor-pointer md:hover:scale-125 duration-300"
+        class="download mt-[4px] hidden duration-300 md:hover:scale-125 md:hover:cursor-pointer lg:block"
       >
         <Download />
       </span>

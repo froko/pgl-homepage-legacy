@@ -19,7 +19,7 @@ const Content = (props: { items: CartItemWithQuantity[]; totalCost: number }) =>
             </div>
             <div className="text-right">CHF</div>
             <div className="text-right">{item.price?.toFixed(2)}</div>
-            <div className="text-center mt-1 md:hover:scale-x-125 duration-200">
+            <div className="mt-1 text-center duration-200 md:hover:scale-x-125">
               <button onClick={() => removeFromCart(item)}>
                 <Trash />
               </button>

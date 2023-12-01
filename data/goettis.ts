@@ -36,5 +36,5 @@ export const goettis: string[] = [
   'Robert Haas',
   'Patrick Eigenheer',
   'Rolf Hunkeler (†)',
-  'Walter "Wada" Zimmermann (†)',
+  'Walter "Wada" Zimmermann (†)'
 ];

@@ -21,13 +21,13 @@ export const GuestbookEntries = () => {
       {loading ? (
         <ul>
           <li>
-            <div className="mt-4 h-10 w-full bg-slate-200 animate-pulse"></div>
+            <div className="mt-4 h-10 w-full animate-pulse bg-slate-200"></div>
           </li>
           <li>
-            <div className="mt-4 h-10 w-full bg-slate-200 animate-pulse"></div>
+            <div className="mt-4 h-10 w-full animate-pulse bg-slate-200"></div>
           </li>
           <li>
-            <div className="mt-4 h-10 w-full bg-slate-200 animate-pulse"></div>
+            <div className="mt-4 h-10 w-full animate-pulse bg-slate-200"></div>
           </li>
         </ul>
       ) : (

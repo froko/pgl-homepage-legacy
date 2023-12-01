@@ -15,7 +15,7 @@ const Button: FunctionComponent<Props> = ({ type, loading, onClick, children }) 
     <div className="relative">
       <button type={type} disabled={true} className={buttonStyles}>
         Bitte warten...
-        <img src="/loading-indicator.gif" alt="Loading Indicator" className="absolute top-0 -right-16 m-2 h-10" />
+        <img src="/loading-indicator.gif" alt="Loading Indicator" className="absolute -right-16 top-0 m-2 h-10" />
       </button>
     </div>
   ) : (

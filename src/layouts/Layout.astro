@@ -8,7 +8,7 @@ export interface Props {
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
@@ -52,19 +52,19 @@ const { title } = Astro.props;
   }
 
   h1 {
-    @apply mt-12 mb-8 !important;
+    @apply mb-8 mt-12 !important;
     @apply text-[2.24rem] md:text-[2.8rem] !important;
     font-weight: 800 !important;
   }
 
   h2 {
-    @apply mt-8 mb-6 !important;
+    @apply mb-6 mt-8 !important;
     @apply text-[1.5rem] md:text-[1.8rem] !important;
     font-weight: 700 !important;
   }
 
   .container {
-    @apply mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-12 lg:max-w-4xl lg:py-16 lg:px-8 xl:max-w-6xl;
+    @apply mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-12 lg:max-w-4xl lg:px-8 lg:py-16 xl:max-w-6xl;
   }
 
   /* Hide scrollbar for Chrome, Safari and Opera */
