@@ -10,10 +10,8 @@ const mediaItems = (await ContentService.instance.getEntriesByType<TypeMediaFiel
 ---
 
 <section id="media" class="bg-slate-200">
-  <div class="container">
-    <article>
-      <h1>Galerie</h1>
-    </article>
+  <article class="container">
+    <h1>Galerie</h1>
     <div class="grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {
         mediaItems
@@ -24,5 +22,5 @@ const mediaItems = (await ContentService.instance.getEntriesByType<TypeMediaFiel
       <MediaCardLocal href="/bilder-archiv" titel="Vergangene Jahre" vorschaubild="/photo-archiv.webp" />
       <MediaCardLocal href="/audio-archiv" titel="Tonträger" vorschaubild="/audio-archiv.webp" />
     </div>
-  </div>
+  </article>
 </section>

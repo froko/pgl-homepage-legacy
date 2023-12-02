@@ -42,47 +42,45 @@ const Contact = () => {
 
   return (
     <section id="contact" className="bg-slate-300">
-      <div className="container">
-        <article>
-          <h1>Kontakt</h1>
-          <p>
-            Nutze das untenstehende Formular um direkt mit uns in Kontakt zu treten. Gerne darfst du uns auch eine
-            E-Mail an <a href="mailto:info@pgl.ch">info@pgl.ch</a> senden.
-          </p>
-          <form className="-mx-2 w-full" onSubmit={handleSubmit}>
-            <div className="flex flex-wrap">
-              <div className="mb-2 w-full px-2 md:w-1/2">
-                <label htmlFor="name">Name*</label>
-                <input id="name" name="name" type="text" required className={formStyle} onChange={handleChange} />
-              </div>
-              <div className="mb-2 w-full px-2 md:w-1/2">
-                <label htmlFor="email">Email*</label>
-                <input id="email" name="email" type="text" required className={formStyle} onChange={handleChange} />
-              </div>
-              <div className="mb-2 w-full px-2">
-                <label htmlFor="message">Nachricht*</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  required
-                  className="w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
-                  onChange={handleChange}
-                ></textarea>
-              </div>
-              <div className="ml-2 mt-4">
-                {thankYou ? (
-                  <span>Vielen Dank für deine Nachricht!</span>
-                ) : (
-                  <Button type="submit" loading={loading}>
-                    Senden
-                  </Button>
-                )}
-              </div>
+      <article className="container">
+        <h1>Kontakt</h1>
+        <p>
+          Nutze das untenstehende Formular um direkt mit uns in Kontakt zu treten. Gerne darfst du uns auch eine E-Mail
+          an <a href="mailto:info@pgl.ch">info@pgl.ch</a> senden.
+        </p>
+        <form className="-mx-2 w-full" onSubmit={handleSubmit}>
+          <div className="flex flex-wrap">
+            <div className="mb-2 w-full px-2 md:w-1/2">
+              <label htmlFor="name">Name*</label>
+              <input id="name" name="name" type="text" required className={formStyle} onChange={handleChange} />
             </div>
-          </form>
-        </article>
-      </div>
+            <div className="mb-2 w-full px-2 md:w-1/2">
+              <label htmlFor="email">Email*</label>
+              <input id="email" name="email" type="text" required className={formStyle} onChange={handleChange} />
+            </div>
+            <div className="mb-2 w-full px-2">
+              <label htmlFor="message">Nachricht*</label>
+              <textarea
+                id="message"
+                name="message"
+                rows={5}
+                required
+                className="w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                onChange={handleChange}
+              ></textarea>
+            </div>
+            <div className="ml-2 mt-4">
+              {thankYou ? (
+                <span>Vielen Dank für deine Nachricht!</span>
+              ) : (
+                <Button type="submit" loading={loading}>
+                  Senden
+                </Button>
+              )}
+            </div>
+          </div>
+        </form>
+      </article>
     </section>
   );
 };

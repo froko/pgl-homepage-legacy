@@ -29,58 +29,56 @@ const baesse = mitglieder.filter((m) => m.instrument === 'Bass').sort(byName);
 ---
 
 <section id="about">
-  <div class="container">
-    <article>
-      <h1>Über uns</h1>
-      <h2>Fasnacht im Herzen. Seit 1961.</h2>
-      <p>
-        Seit 1961 sind die Pilatusgeister fester Bestandteil der Lozärner Fasnacht. Und wo immer sie sind, ist
-        Schunkelstimmung angesagt. Die Klänge der PGL, so das Kürzel der Pilatusgeister Luzern, zielen mitten ins Herz.
-        Melodien von Evergreens, Oberkrainer- und Tessinermusik, südamerikanische Rhythmen, klassische Ohrwürmer,
-        aktuelle Hits und ab und zu ein figulanter Marsch füllen den musikalischen Köcher der PGL. Viele dieser Titel
-        sind auf Tonträgern verewigt. Ob Polka oder Tango, Walzer oder Sirtaki – Vielfalt hat bei den Pilatusgeistern
-        Tradition. Und manch anderes auch noch.
-      </p>
-      <p>
-        Die PGL-Matinéen, die jeweils an den beiden Samstagen vor der Fasnacht im Stadtkeller über die Bühne gehen, sind
-        legendär. Nicht wenige der Besucher*innen stehen schon morgens um fünf Uhr (!) vor der Stadtkeller-Tür, um sich
-        einen guten Platz zu sichern. Ebenfalls im Stadtkeller findet der von den Pilatusgeistern initiierte und
-        organisierte Chöbu-Samschtig statt. Seit Jahren ist dieser Anlass fester Bestandteil in der Agenda
-        eingefleischter PGL-Fans. Ein ganz besonderes PGL-Schmankerl ist für Insider die offene Probe in der Halle des
-        FC Kickers Boccia-Sektion Luzern. Am letzten Probemittwoch vor der Fasnacht sagen die PGL mit diesem Anlass
-        ihrem Gastgeber Dankeschön. Die Halle ist dabei jeweils zum Bersten voll.
-      </p>
-      <p>
-        So traditionsreich wie die PGL-Anlässe sind, so ursprünglich zeigt sich eine der ältesten Guggenmusigen Luzerns
-        in ihrem Auftritt. Die Sujets werden alljährlich von befreundeten Künstlern entworfen. Beim Basteln legen die
-        Mitglieder selbst Hand an. Traditionell kommt die reine Männerformation auch immer im klassischen Gewand mit
-        Rock daher. Ab und zu hört man munkeln, dies werde nur so beibehalten, weil die Röcke so schön schwingen, wenn
-        die Pilatusgeister in ihrem typischen Schunkelschritt daherkommen. Doch wer die PGL kennt, weiss: Die können
-        einfach nicht anders. Denn wenn sie einmal zu marschieren beginnen, dann schlagen die Herzen der begeisterten
-        Mitglieder meistens im Dreivierteltakt. Und jene der vielen Zuhörerinnen und Zuhörer meistens etwas höher. Und
-        überhaupt: Die PGL und ihre Fans mögen, lieben und pflegen die Harmonie. Dass dem so ist, beweist auch die
-        Tatsache, dass die Pilatusgeister in ihrer 60-jährigen Vereinsgeschichte erst den dritten Präsidenten haben.
-      </p>
-      <h2>PGL Facts in Kürze</h2>
-      <p>
-        Die Pilatusgeister sind eine der wenigen klassischen Männermusigen Luzerns. Gegründet wurden die Pilatusgeister
-        Luzern 1961 von Heinz Gloor, Sigi Widmer, Noldi Torricelli und Fritz Winteler. Wir sind Mitglied der
-        <q>Vereinigte</q> seit deren Gründung im Jahr 1964.
-      </p>
-      <p>Der aktuelle Vorstand besteht aus:</p>
-      <ul>
-        {
-          vorstand.map((v) => (
-            <li>
-              <span class="font-semibold">{v.name}</span>
-              <br />
-              <span class="text-slate-900/60">{v.funktion}</span>
-            </li>
-          ))
-        }
-      </ul>
-    </article>
-  </div>
+  <article class="container">
+    <h1>Über uns</h1>
+    <h2>Fasnacht im Herzen. Seit 1961.</h2>
+    <p class="paragraph">
+      Seit 1961 sind die Pilatusgeister fester Bestandteil der Lozärner Fasnacht. Und wo immer sie sind, ist
+      Schunkelstimmung angesagt. Die Klänge der PGL, so das Kürzel der Pilatusgeister Luzern, zielen mitten ins Herz.
+      Melodien von Evergreens, Oberkrainer- und Tessinermusik, südamerikanische Rhythmen, klassische Ohrwürmer, aktuelle
+      Hits und ab und zu ein figulanter Marsch füllen den musikalischen Köcher der PGL. Viele dieser Titel sind auf
+      Tonträgern verewigt. Ob Polka oder Tango, Walzer oder Sirtaki – Vielfalt hat bei den Pilatusgeistern Tradition.
+      Und manch anderes auch noch.
+    </p>
+    <p class="paragraph">
+      Die PGL-Matinéen, die jeweils an den beiden Samstagen vor der Fasnacht im Stadtkeller über die Bühne gehen, sind
+      legendär. Nicht wenige der Besucher*innen stehen schon morgens um fünf Uhr (!) vor der Stadtkeller-Tür, um sich
+      einen guten Platz zu sichern. Ebenfalls im Stadtkeller findet der von den Pilatusgeistern initiierte und
+      organisierte Chöbu-Samschtig statt. Seit Jahren ist dieser Anlass fester Bestandteil in der Agenda eingefleischter
+      PGL-Fans. Ein ganz besonderes PGL-Schmankerl ist für Insider die offene Probe in der Halle des FC Kickers
+      Boccia-Sektion Luzern. Am letzten Probemittwoch vor der Fasnacht sagen die PGL mit diesem Anlass ihrem Gastgeber
+      Dankeschön. Die Halle ist dabei jeweils zum Bersten voll.
+    </p>
+    <p class="paragraph">
+      So traditionsreich wie die PGL-Anlässe sind, so ursprünglich zeigt sich eine der ältesten Guggenmusigen Luzerns in
+      ihrem Auftritt. Die Sujets werden alljährlich von befreundeten Künstlern entworfen. Beim Basteln legen die
+      Mitglieder selbst Hand an. Traditionell kommt die reine Männerformation auch immer im klassischen Gewand mit Rock
+      daher. Ab und zu hört man munkeln, dies werde nur so beibehalten, weil die Röcke so schön schwingen, wenn die
+      Pilatusgeister in ihrem typischen Schunkelschritt daherkommen. Doch wer die PGL kennt, weiss: Die können einfach
+      nicht anders. Denn wenn sie einmal zu marschieren beginnen, dann schlagen die Herzen der begeisterten Mitglieder
+      meistens im Dreivierteltakt. Und jene der vielen Zuhörerinnen und Zuhörer meistens etwas höher. Und überhaupt: Die
+      PGL und ihre Fans mögen, lieben und pflegen die Harmonie. Dass dem so ist, beweist auch die Tatsache, dass die
+      Pilatusgeister in ihrer 60-jährigen Vereinsgeschichte erst den dritten Präsidenten haben.
+    </p>
+    <h2>PGL Facts in Kürze</h2>
+    <p class="paragraph">
+      Die Pilatusgeister sind eine der wenigen klassischen Männermusigen Luzerns. Gegründet wurden die Pilatusgeister
+      Luzern 1961 von Heinz Gloor, Sigi Widmer, Noldi Torricelli und Fritz Winteler. Wir sind Mitglied der
+      <q>Vereinigte</q> seit deren Gründung im Jahr 1964.
+    </p>
+    <p class="paragraph">Der aktuelle Vorstand besteht aus:</p>
+    <ul>
+      {
+        vorstand.map((v) => (
+          <li>
+            <span class="font-semibold">{v.name}</span>
+            <br />
+            <span class="text-slate-900/60">{v.funktion}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </article>
 
   <article>
     <div class="w-screen bg-slate-100 py-8">
@@ -99,26 +97,24 @@ const baesse = mitglieder.filter((m) => m.instrument === 'Bass').sort(byName);
     </div>
   </article>
 
-  <div class="container">
-    <article>
-      <h2>Götticlub</h2>
-      <p>
-        Sie haben ihre Instrumente zwar an den berühmten Nagel gehängt, dennoch bleiben ehemalige Mitglieder eng mit den
-        PGL verbunden. Im 2003 von Turi Balzarini und Fritz Winteler ins Leben gerufenen Götticlub kann Mitglied werden,
-        wer mindestens fünf Jahre lang aktiver Pilatusgeist war. Im Götticlub pflegen sie weiterhin die Freundschaft und
-        unterstützen die aktiven Pilatusgeister in vielen Belangen. Der traditionelle Göttibatzen ist jedes Jahr ein
-        willkommener Zustupf in die PGL-Kasse. Übergeben wird dieser jeweils am PGL-Ausflug, an dem die meisten Göttis
-        jedes Jahr teilnehmen. Viele von ihnen sind auch regelmässig an weiteren PGL-Anlässen mit dabei. An den
-        PGL-Matinéen übernehmen sie die Einlasskontrollen und bei grossen PGL-Jubiläen bilden sie den Vortrab am
-        Monsterkonzert. Jeweils am Morgen des Güdiszischtig organisieren sie ihren mittlerweile legendären Göttiapéro
-        auf dem Kapellplatz. Dort servieren sie den zahlreichen PGL-Fans und -Aktivmitgliedern Campari Orange, Cüpli,
-        Bier und heisse Bouillon und beweisen damit auf ihre typische Art, dass Harmonie bei den PGL weit über das
-        Guggenmusikalische hinausgeht.
-      </p>
-      <h2>Götticlub Mitglieder</h2>
-      <ul class="grid grid-cols-1 lg:grid-cols-2">
-        {goettis.map((goetti) => <li class="m-0">{goetti}</li>)}
-      </ul>
-    </article>
-  </div>
+  <article class="container">
+    <h2>Götticlub</h2>
+    <p class="paragraph">
+      Sie haben ihre Instrumente zwar an den berühmten Nagel gehängt, dennoch bleiben ehemalige Mitglieder eng mit den
+      PGL verbunden. Im 2003 von Turi Balzarini und Fritz Winteler ins Leben gerufenen Götticlub kann Mitglied werden,
+      wer mindestens fünf Jahre lang aktiver Pilatusgeist war. Im Götticlub pflegen sie weiterhin die Freundschaft und
+      unterstützen die aktiven Pilatusgeister in vielen Belangen. Der traditionelle Göttibatzen ist jedes Jahr ein
+      willkommener Zustupf in die PGL-Kasse. Übergeben wird dieser jeweils am PGL-Ausflug, an dem die meisten Göttis
+      jedes Jahr teilnehmen. Viele von ihnen sind auch regelmässig an weiteren PGL-Anlässen mit dabei. An den
+      PGL-Matinéen übernehmen sie die Einlasskontrollen und bei grossen PGL-Jubiläen bilden sie den Vortrab am
+      Monsterkonzert. Jeweils am Morgen des Güdiszischtig organisieren sie ihren mittlerweile legendären Göttiapéro auf
+      dem Kapellplatz. Dort servieren sie den zahlreichen PGL-Fans und -Aktivmitgliedern Campari Orange, Cüpli, Bier und
+      heisse Bouillon und beweisen damit auf ihre typische Art, dass Harmonie bei den PGL weit über das
+      Guggenmusikalische hinausgeht.
+    </p>
+    <h2>Götticlub Mitglieder</h2>
+    <ul class="grid grid-cols-1 lg:grid-cols-2">
+      {goettis.map((goetti) => <li class="m-0">{goetti}</li>)}
+    </ul>
+  </article>
 </section>
