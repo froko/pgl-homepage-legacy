@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'preact/hooks';
-import { GuestbookForm } from './guestbook-form';
+import { GuestbookForm } from './_guestbook-form';
 
 export const GuestbookEntries = () => {
   const [loading, setLoading] = useState(true);
