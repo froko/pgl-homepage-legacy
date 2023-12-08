@@ -1,8 +1,5 @@
 ---
-import type { TypeMediaFields } from 'src/contentful';
-import contentfulImage from 'src/lib/contentful-image';
-
-export interface Props extends TypeMediaFields {}
+import { contentfulImage } from '@pgl/contentful';
 
 const { slug, titel, vorschaubild } = Astro.props;
 const link = `/media/${slug}`;

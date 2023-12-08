@@ -1,6 +1,6 @@
 ---
-import { ArrowLeft } from 'src/components/icons';
-import Layout from 'src/layouts/Layout.astro';
+import { ArrowLeft } from '@pgl/components/icons';
+import Layout from '../../layouts/Layout.astro';
 import Aufnahmen from './_aufnahmen.astro';
 import Calendar from './_calendar.astro';
 import Documents from './_documents.astro';
@@ -49,7 +49,7 @@ import Noten from './_noten.astro';
 </Layout>
 
 <script>
-  import { isAuthenticated, login, logout } from 'src/lib/auth';
+  import { isAuthenticated, login, logout } from '@pgl/auth';
 
   document.querySelector('#logout')?.addEventListener('click', () => logout());
   document.addEventListener('DOMContentLoaded', () => {

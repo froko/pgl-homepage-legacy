@@ -97,6 +97,9 @@ devDependencies:
   prettier-plugin-astro:
     specifier: ^0.12.2
     version: 0.12.2
+  prettier-plugin-astro-organize-imports:
+    specifier: ^0.3.3
+    version: 0.3.3(prettier-plugin-astro@0.12.2)(prettier-plugin-tailwindcss@0.5.7)(prettier@3.1.0)
   prettier-plugin-tailwindcss:
     specifier: ^0.5.7
     version: 0.5.7(prettier-plugin-astro@0.12.2)(prettier@3.1.0)
@@ -5080,6 +5083,25 @@ packages:
     engines: {node: '>=6.0.0'}
     dependencies:
       fast-diff: 1.3.0
+    dev: true
+
+  /prettier-plugin-astro-organize-imports@0.3.3(prettier-plugin-astro@0.12.2)(prettier-plugin-tailwindcss@0.5.7)(prettier@3.1.0):
+    resolution: {integrity: sha512-2m2xl+yzX0igysXPqBn7C2stBGTn/pP2XAEBkhk3D4kcldmIY5JG4lKsNwKoVIbMWAi+3hxtAZVhtz4OpPd4fQ==}
+    engines: {node: '>=16.0.0', pnpm: '>=8.6.0'}
+    peerDependencies:
+      prettier: ^3.0
+      prettier-plugin-astro: '*'
+      prettier-plugin-tailwindcss: '*'
+    peerDependenciesMeta:
+      prettier-plugin-astro:
+        optional: true
+      prettier-plugin-tailwindcss:
+        optional: true
+    dependencies:
+      prettier: 3.1.0
+      prettier-plugin-astro: 0.12.2
+      prettier-plugin-tailwindcss: 0.5.7(prettier-plugin-astro@0.12.2)(prettier@3.1.0)
+      typescript: 5.3.2
     dev: true
 
   /prettier-plugin-astro@0.12.2:

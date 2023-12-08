@@ -1,9 +1,8 @@
+import Button from '@pgl/components/button';
+import type { CartItemWithQuantity, CheckoutFormData } from '@pgl/data';
+import { clearCart } from '@pgl/store';
 import { useState } from 'preact/hooks';
 import { Fragment } from 'preact/jsx-runtime';
-
-import { clearCart } from 'src/cartStore';
-import Button from 'src/components/button';
-import type { CartItemWithQuantity, CheckoutFormData } from 'src/data';
 
 import { CustomerMessage, ShopMessage } from './_messages';
 

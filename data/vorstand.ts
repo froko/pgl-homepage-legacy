@@ -1,4 +1,4 @@
-import type { Vorstand } from '../src/data';
+import type { Vorstand } from '.';
 
 export const vorstand: Vorstand[] = [
   { name: 'Beat Thalmann', funktion: 'Präsident' },

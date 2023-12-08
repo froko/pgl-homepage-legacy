@@ -1,5 +1,5 @@
-import { NavigationItems } from 'data/navigation';
-import { isOpen } from 'src/navigationStore';
+import { NavigationItems } from '@pgl/data';
+import { isOpen } from '@pgl/store';
 import Overlay from './overlay';
 
 const Navigation = () => {

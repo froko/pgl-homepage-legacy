@@ -3,6 +3,13 @@
   "compilerOptions": {
     "baseUrl": ".",
     "jsx": "react-jsx",
-    "jsxImportSource": "preact"
+    "jsxImportSource": "preact",
+    "paths": {
+      "@pgl/auth": ["./src/lib/auth/index.ts"],
+      "@pgl/components/*": ["./src/components/*"],
+      "@pgl/contentful": ["./src/lib/contentful/index.ts"],
+      "@pgl/data": ["./data/index.ts"],
+      "@pgl/store": ["./src/lib/store/index.ts"]
+    }
   }
 }

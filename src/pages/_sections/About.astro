@@ -1,22 +1,15 @@
 ---
-import { goettis } from 'data/goettis';
-import { vorstand } from 'data/vorstand';
-
-import type { TypeMitgliederFields } from 'src/contentful';
-import ContentService from 'src/lib/contentful';
-
+import { fetchFromContentful, type Mitglied } from '@pgl/contentful';
+import { goettis, vorstand } from '@pgl/data';
 import Register from './_Register.astro';
 
-const byName = (a: TypeMitgliederFields, b: TypeMitgliederFields) => {
+const byName = (a: Mitglied, b: Mitglied) => {
   if (a.name < b.name) return -1;
   if (a.name > b.name) return 1;
   return 0;
 };
 
-const mitglieder = (await ContentService.instance.getEntriesByType<TypeMitgliederFields>('mitglieder')).map(
-  (entry) => entry.fields
-);
-
+const mitglieder = await fetchFromContentful<Mitglied>('mitglieder');
 const majoren = mitglieder.filter((m) => m.instrument === 'Tambourmajor').sort(byName);
 const cinellen = mitglieder.filter((m) => m.instrument === 'Cinelle').sort(byName);
 const drums = mitglieder.filter((m) => m.instrument === 'Drums').sort(byName);

@@ -1,8 +1,7 @@
+import { Trash } from '@pgl/components/icons';
+import type { CartItemWithQuantity } from '@pgl/data';
+import { removeFromCart } from '@pgl/store';
 import { Fragment } from 'preact/jsx-runtime';
-
-import { removeFromCart } from 'src/cartStore';
-import { Trash } from 'src/components/icons';
-import type { CartItemWithQuantity } from 'src/data';
 
 import CheckoutForm from './_checkout-form';
 

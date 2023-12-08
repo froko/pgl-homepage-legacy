@@ -1,4 +1,4 @@
-import type { Advertisement } from 'src/data';
+import type { Advertisement } from '.';
 
 export const ads: Advertisement[] = [
   { src: 'be-partner.png', alt: 'be-partner', href: 'https://bepartner.ch/' },

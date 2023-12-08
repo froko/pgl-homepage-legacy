@@ -1,5 +1,5 @@
 ---
-import type { TypeMediaFields } from 'src/contentful';
+import type { MediaItem } from '@pgl/contentful';
 import BilderArchivCard from './_bilder-archiv-card.astro';
 
 const { jahr, media } = Astro.props;
@@ -11,7 +11,7 @@ const { jahr, media } = Astro.props;
 <div class="grid grid-cols-1 items-stretch gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-4">
   {
     media
-      .filter((m: TypeMediaFields) => m.jahr === jahr)
-      .map((m: TypeMediaFields) => <BilderArchivCard slug={m.slug} titel={m.titel} vorschaubild={m.vorschaubild} />)
+      .filter((m: MediaItem) => m.jahr === jahr)
+      .map((m: MediaItem) => <BilderArchivCard slug={m.slug} titel={m.titel} vorschaubild={m.vorschaubild} />)
   }
 </div>

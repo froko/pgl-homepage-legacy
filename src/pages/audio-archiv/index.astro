@@ -1,14 +1,10 @@
 ---
-import ArrowLink from 'src/components/arrow-link.astro';
-import { Download, Play } from 'src/components/icons';
-import type { TypeAudioArchivFields } from 'src/contentful';
-import Layout from 'src/layouts/Layout.astro';
-import ContentService from 'src/lib/contentful';
-import contentfulImage from 'src/lib/contentful-image';
+import ArrowLink from '@pgl/components/arrow-link.astro';
+import { Download, Play } from '@pgl/components/icons';
+import { contentfulImage, fetchFromContentful, type AudioArchivItem } from '@pgl/contentful';
+import Layout from '../../layouts/Layout.astro';
 
-const media = (await ContentService.instance.getEntriesByType<TypeAudioArchivFields>('audioArchiv')).map(
-  (entry: any) => entry.fields
-);
+const audioArchivItems = await fetchFromContentful<AudioArchivItem>('audioArchiv');
 ---
 
 <Layout title="PGL | Tonträger">
@@ -18,7 +14,7 @@ const media = (await ContentService.instance.getEntriesByType<TypeAudioArchivFie
         <ArrowLink style="mt-12" href="/#media" content="Zurück zur Galerie" />
         <h1>Tonträger</h1>
         {
-          media.map((m: any) => (
+          audioArchivItems.map((m: any) => (
             <div class="mt-12 grid grid-cols-1 place-content-start gap-8 lg:grid-cols-2">
               <div>
                 <img

@@ -1,4 +1,4 @@
-import type { Event } from '../src/data';
+import type { Event } from '.';
 
 export const events: Event[] = [
   { title: '1. Matinée', description: '27.01.2024, 09:45 @ Stadtkeller Luzern' },

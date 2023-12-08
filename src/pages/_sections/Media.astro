@@ -1,24 +1,16 @@
 ---
-import type { TypeMediaFields } from 'src/contentful';
-import ContentService from 'src/lib/contentful';
+import { fetchFromContentful, type MediaItem } from '@pgl/contentful';
 import MediaCardContentful from './_MediaCardContentful.astro';
 import MediaCardLocal from './_MediaCardLocal.astro';
 
-const mediaItems = (await ContentService.instance.getEntriesByType<TypeMediaFields>('media')).map(
-  (entry) => entry.fields
-);
+const mediaItems = (await fetchFromContentful<MediaItem>('media')).filter((item) => !item.archiv).slice(0, 4);
 ---
 
 <section id="media" class="bg-slate-200">
   <article class="container">
     <h1>Galerie</h1>
     <div class="grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        mediaItems
-          .filter((item) => !item.archiv)
-          .slice(0, 4)
-          .map((item) => <MediaCardContentful {...item} />)
-      }
+      {mediaItems.map((item) => <MediaCardContentful {...item} />)}
       <MediaCardLocal href="/bilder-archiv" titel="Vergangene Jahre" vorschaubild="/photo-archiv.webp" />
       <MediaCardLocal href="/audio-archiv" titel="Tonträger" vorschaubild="/audio-archiv.webp" />
     </div>

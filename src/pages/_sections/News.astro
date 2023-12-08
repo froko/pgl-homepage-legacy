@@ -1,28 +1,21 @@
 ---
-import type { TypeNewsFields } from 'src/contentful';
-import ContentService from 'src/lib/contentful';
-
+import { fetchFromContentful, type NewsItem } from '@pgl/contentful';
 import NewsCard from './_NewsCard.astro';
 
-const newsItems = (await ContentService.instance.getEntriesByType<TypeNewsFields>('news')).map((entry) => entry.fields);
-
-const byDatum = (a: TypeNewsFields, b: TypeNewsFields): number => {
+const byDatum = (a: NewsItem, b: NewsItem): number => {
   if (a.datum < b.datum) return 1;
   if (a.datum > b.datum) return -1;
   return 0;
 };
+
+const newsItems = (await fetchFromContentful<NewsItem>('news')).sort(byDatum).slice(0, 6);
 ---
 
 <section id="news" class="bg-slate-100">
   <article class="container">
     <h1>News</h1>
     <div class="grid grid-cols-1 items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4">
-      {
-        newsItems
-          .sort(byDatum)
-          .slice(0, 6)
-          .map((item) => <NewsCard {...item} />)
-      }
+      {newsItems.map((item) => <NewsCard {...item} />)}
     </div>
   </article>
 </section>

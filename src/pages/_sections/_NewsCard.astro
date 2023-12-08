@@ -1,9 +1,6 @@
 ---
-import { Calendar } from 'src/components/icons';
-import type { TypeNewsFields } from 'src/contentful';
-import contentfulImage from 'src/lib/contentful-image';
-
-export interface Props extends TypeNewsFields {}
+import { Calendar } from '@pgl/components/icons';
+import { contentfulImage } from '@pgl/contentful';
 
 const { slug, titel, vorschaubild, datum } = Astro.props;
 const link = `/news/${slug}`;

@@ -1,5 +1,5 @@
+import Button from '@pgl/components/button';
 import { useState } from 'preact/hooks';
-import Button from 'src/components/button';
 
 interface FormData {
   name: string;

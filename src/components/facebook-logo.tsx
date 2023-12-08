@@ -1,5 +1,5 @@
 import { useStore } from '@nanostores/preact';
-import { isHidden } from 'src/navigationStore';
+import { isHidden } from '@pgl/store';
 
 const FacebookLogo = () => {
   const $isHidden = useStore(isHidden);

@@ -1,7 +1,7 @@
 import { useStore } from '@nanostores/preact';
+import { isOpen } from '@pgl/store';
 import { useEffect } from 'preact/hooks';
 
-import { isOpen } from 'src/navigationStore';
 
 const Overlay = (props: { children: any }) => {
   const $isOpen = useStore(isOpen);

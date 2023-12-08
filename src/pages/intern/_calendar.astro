@@ -1,29 +1,26 @@
 ---
-import type { TypeInternKalenderFields } from 'src/contentful';
-import ContentService from 'src/lib/contentful';
+import { fetchFromContentful, type InternCalendarItem } from '@pgl/contentful';
 
-const calendarEntries = (
-  await ContentService.instance.getEntriesByType<TypeInternKalenderFields>('internKalender')
-).map((entry) => entry.fields);
-
-const byDate = (a: TypeInternKalenderFields, b: TypeInternKalenderFields) => {
+const byDate = (a: InternCalendarItem, b: InternCalendarItem) => {
   return new Date(a.datum).getTime() - new Date(b.datum).getTime();
 };
+
+const calendarItems = (await fetchFromContentful<InternCalendarItem>('internKalender')).sort(byDate);
 ---
 
 <h2>Kalender</h2>
 {
-  calendarEntries.sort(byDate).map((calendarEntry) => (
+  calendarItems.map((calendarItem) => (
     <div class="w-full p-1 odd:bg-slate-100 even:bg-white">
       <div class="font-bold md:mr-4">
-        {new Date(calendarEntry.datum).toLocaleDateString('de-CH', {
+        {new Date(calendarItem.datum).toLocaleDateString('de-CH', {
           year: 'numeric',
           month: '2-digit',
           day: '2-digit'
         })}
-        : {calendarEntry.anlass}
+        : {calendarItem.anlass}
       </div>
-      <span>{calendarEntry.ort}</span>
+      <span>{calendarItem.ort}</span>
     </div>
   ))
 }

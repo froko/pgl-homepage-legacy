@@ -1,4 +1,4 @@
-import type { CartItemWithQuantity, CheckoutFormData } from 'src/data';
+import type { CartItemWithQuantity, CheckoutFormData } from '@pgl/data';
 
 export const CustomerMessage = (items: CartItemWithQuantity[], totalCost: number, vorname: string) => {
   const articlesAsString = items

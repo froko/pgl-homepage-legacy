@@ -1,19 +1,15 @@
 ---
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import type { Asset } from 'contentful';
 
-import ArrowLink from 'src/components/arrow-link.astro';
-import Carousel from 'src/components/carousel';
-import { ArrowRight } from 'src/components/icons';
-import type { TypeNewsFields } from 'src/contentful';
-import Layout from 'src/layouts/Layout.astro';
-import ContentService from 'src/lib/contentful';
-import contentfulImage from 'src/lib/contentful-image';
+import ArrowLink from '@pgl/components/arrow-link.astro';
+import Carousel from '@pgl/components/carousel';
+import { ArrowRight } from '@pgl/components/icons';
+import { contentfulImage, fetchFromContentful, type NewsItem } from '@pgl/contentful';
+import type { Asset } from 'contentful';
+import Layout from '../../layouts/Layout.astro';
 
 export const getStaticPaths = async () => {
-  const newsItems = (await ContentService.instance.getEntriesByType<TypeNewsFields>('news')).map(
-    (entry: any) => entry.fields
-  );
+  const newsItems = await fetchFromContentful<NewsItem>('news');
   const pages = newsItems.map((item: any) => ({
     params: { slug: item.slug },
     props: {

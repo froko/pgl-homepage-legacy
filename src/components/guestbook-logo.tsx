@@ -1,5 +1,5 @@
 import { useStore } from '@nanostores/preact';
-import { isHidden } from 'src/navigationStore';
+import { isHidden } from '@pgl/store';
 import { Guestbook } from './icons';
 
 const GuestbookLogo = () => {

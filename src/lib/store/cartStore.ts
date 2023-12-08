@@ -1,5 +1,5 @@
 import { persistentAtom } from '@nanostores/persistent';
-import type { CartItem } from './data';
+import type { CartItem } from '@pgl/data';
 
 export const cartItems = persistentAtom<CartItem[]>('cartItems', [], { encode: JSON.stringify, decode: JSON.parse });
 export const cartItemCount = persistentAtom<number>('cartItemCount', 0, { encode: JSON.stringify, decode: JSON.parse });

@@ -1,4 +1,4 @@
-import type { NavigationItem } from 'src/data';
+import type { NavigationItem } from '.';
 
 export const NavigationItems: NavigationItem[] = [
   { name: 'News', to: '/#news' },

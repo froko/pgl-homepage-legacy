@@ -1,5 +1,5 @@
 import { useStore } from '@nanostores/preact';
-import { isHidden, isOpen } from 'src/navigationStore';
+import { isHidden, isOpen } from '@pgl/store';
 
 const Hamburger = () => {
   const $isHidden = useStore(isHidden);

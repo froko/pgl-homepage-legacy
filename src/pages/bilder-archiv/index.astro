@@ -1,14 +1,11 @@
 ---
-import ArrowLink from 'src/components/arrow-link.astro';
-import type { TypeMediaFields } from 'src/contentful';
-import Layout from 'src/layouts/Layout.astro';
-import ContentService from 'src/lib/contentful';
+import ArrowLink from '@pgl/components/arrow-link.astro';
+import { fetchFromContentful, type MediaItem } from '@pgl/contentful';
+import Layout from '../../layouts/Layout.astro';
 import BilderArchivJahr from './_bilder-archiv-jahr.astro';
 import BilderArchivOlderThan from './_bilder-archiv-older-than.astro';
 
-const media = (await ContentService.instance.getEntriesByType<TypeMediaFields>('media'))
-  .map((entry: any) => entry.fields)
-  .filter((m: any) => m.archiv);
+const mediaItems = (await fetchFromContentful<MediaItem>('media')).filter((m: any) => m.archiv);
 ---
 
 <Layout title="PGL | Archiv">
@@ -17,15 +14,15 @@ const media = (await ContentService.instance.getEntriesByType<TypeMediaFields>('
       <article>
         <ArrowLink style="mt-12" href="/#media" content="Zurück zur Galerie" />
         <h1>Vergangene Jahre</h1>
-        <BilderArchivJahr jahr={2023} media={media} />
-        <BilderArchivJahr jahr={2022} media={media} />
-        <BilderArchivJahr jahr={2021} media={media} />
-        <BilderArchivJahr jahr={2020} media={media} />
-        <BilderArchivJahr jahr={2019} media={media} />
-        <BilderArchivJahr jahr={2018} media={media} />
-        <BilderArchivJahr jahr={2017} media={media} />
-        <BilderArchivJahr jahr={2016} media={media} />
-        <BilderArchivOlderThan jahr={2016} media={media} />
+        <BilderArchivJahr jahr={2023} media={mediaItems} />
+        <BilderArchivJahr jahr={2022} media={mediaItems} />
+        <BilderArchivJahr jahr={2021} media={mediaItems} />
+        <BilderArchivJahr jahr={2020} media={mediaItems} />
+        <BilderArchivJahr jahr={2019} media={mediaItems} />
+        <BilderArchivJahr jahr={2018} media={mediaItems} />
+        <BilderArchivJahr jahr={2017} media={mediaItems} />
+        <BilderArchivJahr jahr={2016} media={mediaItems} />
+        <BilderArchivOlderThan jahr={2016} media={mediaItems} />
         <ArrowLink style="mt-6" href="/#media" content="Zurück zur Galerie" />
       </article>
     </div>

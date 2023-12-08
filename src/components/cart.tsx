@@ -1,6 +1,5 @@
 import { useStore } from '@nanostores/preact';
-import { cartItemCount } from 'src/cartStore';
-import { isHidden } from 'src/navigationStore';
+import { cartItemCount, isHidden } from '@pgl/store';
 import { ShoppingCart } from './icons';
 
 const Cart = () => {

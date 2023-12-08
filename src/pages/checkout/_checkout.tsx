@@ -1,9 +1,8 @@
 import { useStore } from '@nanostores/preact';
+import type { CartItem, CartItemWithQuantity } from '@pgl/data';
+import { cartItems } from '@pgl/store';
 import { useEffect, useState } from 'preact/hooks';
 import { Fragment } from 'preact/jsx-runtime';
-
-import { cartItems } from 'src/cartStore';
-import type { CartItem, CartItemWithQuantity } from 'src/data';
 
 import Content from './_content';
 

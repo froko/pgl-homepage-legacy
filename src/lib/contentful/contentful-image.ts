@@ -1,12 +1,12 @@
-export type ContentfulImageSource =
+type ContentfulImageSource =
   | string
   | { url: string }
   | { file: { url: string } }
   | { fields: { file: { url: string } } };
 
-export type ContentfulImageOptionsFormat = 'jpg' | 'png' | 'webp' | 'gif' | 'avif' | 'jpg/progressive' | 'png/png8';
-export type ContentfulImageOptionsFit = 'pad' | 'fill' | 'scale' | 'crop' | 'thumb';
-export type ContentfulImageOptionsFocusArea =
+type ContentfulImageOptionsFormat = 'jpg' | 'png' | 'webp' | 'gif' | 'avif' | 'jpg/progressive' | 'png/png8';
+type ContentfulImageOptionsFit = 'pad' | 'fill' | 'scale' | 'crop' | 'thumb';
+type ContentfulImageOptionsFocusArea =
   | 'center'
   | 'top'
   | 'left'
@@ -18,13 +18,13 @@ export type ContentfulImageOptionsFocusArea =
   | 'bottom_left'
   | 'face'
   | 'faces';
-export type ContentfulImageOptionsHeight = number;
-export type ContentfulImageOptionsWidth = number;
-export type ContentfulImageOptionsRadius = number | 'max';
-export type ContentfulImageOptionsQuality = number;
-export type ContentfulImageOptionsBackgroundColor = string;
+type ContentfulImageOptionsHeight = number;
+type ContentfulImageOptionsWidth = number;
+type ContentfulImageOptionsRadius = number | 'max';
+type ContentfulImageOptionsQuality = number;
+type ContentfulImageOptionsBackgroundColor = string;
 
-export type ContentfulImageOptions = {
+type ContentfulImageOptions = {
   format?: ContentfulImageOptionsFormat;
   width?: ContentfulImageOptionsWidth;
   height?: ContentfulImageOptionsHeight;
@@ -35,7 +35,7 @@ export type ContentfulImageOptions = {
   backgroundColor?: ContentfulImageOptionsBackgroundColor;
 };
 
-export const getContentfulImageSrcUrl = (src: ContentfulImageSource) => {
+const getContentfulImageSrcUrl = (src: ContentfulImageSource) => {
   // Get provided raw URL string
   let url =
     typeof src === 'string' ? src : 'fields' in src ? src.fields.file.url : 'file' in src ? src.file.url : src.url;
@@ -64,7 +64,7 @@ const transformers: Partial<Record<keyof ContentfulImageOptions, (value: string)
   backgroundColor: (value) => 'rgb:' + value.replace('#', '')
 };
 
-export const getContentfulImageQuery = (options: ContentfulImageOptions) => {
+const getContentfulImageQuery = (options: ContentfulImageOptions) => {
   return Object.entries(options)
     .map(([key, value]) => {
       // Get list of all parameter names for current option
@@ -90,7 +90,7 @@ export const getContentfulImageQuery = (options: ContentfulImageOptions) => {
     .join('&'); // Join all {name}={value} pairs with "&" to a query string.
 };
 
-const contentfulImage = (src: ContentfulImageSource, options: ContentfulImageOptions = {}) => {
+export const contentfulImage = (src: ContentfulImageSource, options: ContentfulImageOptions = {}) => {
   // Get URL from src and query from options.
   const url = getContentfulImageSrcUrl(src);
   const query = getContentfulImageQuery(options);
@@ -98,5 +98,3 @@ const contentfulImage = (src: ContentfulImageSource, options: ContentfulImageOpt
   // Append query if one constructed
   return url + (query ? `?${query}` : '');
 };
-
-export default contentfulImage;

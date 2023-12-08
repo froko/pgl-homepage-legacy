@@ -1,6 +1,6 @@
-import { addToCart } from 'src/cartStore';
-import { ShoppingCart } from 'src/components/icons';
-import type { CartItem } from 'src/data';
+import { ShoppingCart } from '@pgl/components/icons';
+import type { CartItem } from '@pgl/data';
+import { addToCart } from '@pgl/store';
 
 const ProductCard = (props: { item: CartItem; vorschaubild: string; children: any }) => {
   const { item, vorschaubild, children } = props;

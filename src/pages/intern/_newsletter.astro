@@ -1,22 +1,19 @@
 ---
-import { Download } from 'src/components/icons';
-import type { TypeInternNewsletterFields } from 'src/contentful';
-import ContentService from 'src/lib/contentful';
+import { Download } from '@pgl/components/icons';
+import { fetchFromContentful, type InternNewsletterItem } from '@pgl/contentful';
 
-const newsletterEntries = (
-  await ContentService.instance.getEntriesByType<TypeInternNewsletterFields>('internNewsletter')
-).map((entry) => entry.fields);
+const newsletterItems = await fetchFromContentful<InternNewsletterItem>('internNewsletter');
 ---
 
 <h2>Newsletter</h2>
 {
-  newsletterEntries.map((newsletter) => (
+  newsletterItems.map((newsletter) => (
     <div class="flex w-full p-1 odd:bg-slate-100 even:bg-white hover:bg-slate-200">
       <span>{newsletter.titel}</span>
       <span class="grow" />
       <span
-        data-title={newsletter.dokument.fields.file.fileName}
-        data-src={newsletter.dokument.fields.file.url}
+        data-title={newsletter.dokument.fields.file?.fileName}
+        data-src={newsletter.dokument.fields.file?.url}
         class="download mt-[4px] duration-300 md:hover:scale-125 md:hover:cursor-pointer"
       >
         <Download />
