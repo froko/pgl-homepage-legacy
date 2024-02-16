@@ -22,7 +22,14 @@ const mediaItems = (await fetchFromContentful<MediaItem>('media')).filter((m: an
         <BilderArchivJahr jahr={2018} media={mediaItems} />
         <BilderArchivJahr jahr={2017} media={mediaItems} />
         <BilderArchivJahr jahr={2016} media={mediaItems} />
-        <BilderArchivOlderThan jahr={2016} media={mediaItems} />
+        <BilderArchivJahr jahr={2015} media={mediaItems} />
+        <BilderArchivJahr jahr={2014} media={mediaItems} />
+        <BilderArchivJahr jahr={2013} media={mediaItems} />
+        <BilderArchivJahr jahr={2012} media={mediaItems} />
+        <BilderArchivJahr jahr={2011} media={mediaItems} />
+        <BilderArchivJahr jahr={2010} media={mediaItems} />
+        <BilderArchivJahr jahr={2009} media={mediaItems} />
+        <BilderArchivOlderThan jahr={2009} media={mediaItems} />
         <ArrowLink style="mt-6" href="/#media" content="Zurück zur Galerie" />
       </article>
     </div>
