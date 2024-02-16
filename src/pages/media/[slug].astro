@@ -125,10 +125,7 @@ const { titel, pageTitle, archiv, bilder, videos } = Astro.props;
   import SimpleLightbox from 'simplelightbox';
   import { isHidden } from '../../lib/store/navigationStore';
 
-  const gallery = new SimpleLightbox('.gallery a', {
-    showCounter: false
-  });
-
+  const gallery = new SimpleLightbox('.gallery a', { showCounter: false });
   gallery.on('show.simplelightbox', () => isHidden.set(true));
   gallery.on('closed.simplelightbox', () => isHidden.set(false));
 </script>
