@@ -15,8 +15,8 @@ dependencies:
     specifier: ^16.3.0
     version: 16.3.0
   '@nanostores/persistent':
-    specifier: ^0.9.1
-    version: 0.9.1(nanostores@0.9.5)
+    specifier: ^0.10.0
+    version: 0.10.0(nanostores@0.9.5)
   '@nanostores/preact':
     specifier: ^0.5.0
     version: 0.5.0(nanostores@0.9.5)(preact@10.19.3)
@@ -771,11 +771,11 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: false
 
-  /@nanostores/persistent@0.9.1(nanostores@0.9.5):
-    resolution: {integrity: sha512-ow57Hxm5VMaI5GHET/cVk8hX/iKMmbhcGrB9owfN8p8OHiiJgUlYxe1giacwlAALJXAh2t8bxXh42hHb64BCEA==}
-    engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
+  /@nanostores/persistent@0.10.0(nanostores@0.9.5):
+    resolution: {integrity: sha512-orZBUnG77YH57sEGKBQkvPgQrAgKOJjCZO8sjAyMgGLiPhaXJUNe01EKUz2hviKCTb+Qw7hg2a/DG9IgopraSQ==}
+    engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
-      nanostores: ^0.9.0
+      nanostores: ^0.9.0 || ^0.10.0
     dependencies:
       nanostores: 0.9.5
     dev: false
