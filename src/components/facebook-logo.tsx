@@ -6,7 +6,7 @@ const FacebookLogo = () => {
 
   return $isHidden ? null : (
     <a href="https://www.facebook.com/pilatusgeister" className="mr-4 duration-200 md:hover:scale-125 lg:mr-8">
-      <img src="/facebook-logo.jpg" alt="facebook" className="h-5 w-5 md:h-6 md:w-6 object-cover" />
+      <img src="/facebook-logo.jpg" alt="facebook" className="h-5 w-5 object-cover md:h-6 md:w-6" />
     </a>
   );
 };
