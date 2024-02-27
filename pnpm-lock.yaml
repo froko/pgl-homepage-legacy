@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@astrojs/preact':
     specifier: ^3.0.1
-    version: 3.0.1(@babel/core@7.23.9)(preact@10.19.3)(vite@5.1.4)
+    version: 3.0.1(@babel/core@7.23.9)(preact@10.19.6)(vite@5.1.4)
   '@astrojs/tailwind':
     specifier: ^5.0.3
     version: 5.0.3(astro@4.0.3)(tailwindcss@3.3.6)
@@ -19,7 +19,7 @@ dependencies:
     version: 0.10.1(nanostores@0.10.0)
   '@nanostores/preact':
     specifier: ^0.5.0
-    version: 0.5.1(nanostores@0.10.0)(preact@10.19.3)
+    version: 0.5.1(nanostores@0.10.0)(preact@10.19.6)
   '@tailwindcss/typography':
     specifier: ^0.5.10
     version: 0.5.10(tailwindcss@3.3.6)
@@ -37,7 +37,7 @@ dependencies:
     version: 0.10.0
   preact:
     specifier: ^10.19.3
-    version: 10.19.3
+    version: 10.19.6
   simplelightbox:
     specifier: ^2.14.2
     version: 2.14.2
@@ -167,7 +167,7 @@ packages:
       - supports-color
     dev: false
 
-  /@astrojs/preact@3.0.1(@babel/core@7.23.9)(preact@10.19.3)(vite@5.1.4):
+  /@astrojs/preact@3.0.1(@babel/core@7.23.9)(preact@10.19.6)(vite@5.1.4):
     resolution: {integrity: sha512-pAfN+U7J4hw7qijqkBx1ZBpPO+ooa+MkKIgshCozfqsHTp18uPflxQUviz0TEzB5nn7hSndzncWuc3pz/HbtJw==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
@@ -175,11 +175,11 @@ packages:
     dependencies:
       '@babel/plugin-transform-react-jsx': 7.23.4(@babel/core@7.23.9)
       '@babel/plugin-transform-react-jsx-development': 7.22.5(@babel/core@7.23.9)
-      '@preact/preset-vite': 2.7.0(@babel/core@7.23.9)(preact@10.19.3)(vite@5.1.4)
-      '@preact/signals': 1.2.2(preact@10.19.3)
+      '@preact/preset-vite': 2.7.0(@babel/core@7.23.9)(preact@10.19.6)(vite@5.1.4)
+      '@preact/signals': 1.2.2(preact@10.19.6)
       babel-plugin-transform-hook-names: 1.0.2(@babel/core@7.23.9)
-      preact: 10.19.3
-      preact-render-to-string: 6.3.1(preact@10.19.3)
+      preact: 10.19.6
+      preact-render-to-string: 6.3.1(preact@10.19.6)
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
@@ -1146,7 +1146,7 @@ packages:
       nanostores: 0.10.0
     dev: false
 
-  /@nanostores/preact@0.5.1(nanostores@0.10.0)(preact@10.19.3):
+  /@nanostores/preact@0.5.1(nanostores@0.10.0)(preact@10.19.6):
     resolution: {integrity: sha512-kofyeDwzM3TrOd37ay+Xxgk3Cn6jih23dxELc7Mr9IJV55jmWATfNP9b7O/awwCL7CE5z5PfzFnNk/W+tMaWGw==}
     engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
@@ -1154,7 +1154,7 @@ packages:
       preact: '>=10.0.0'
     dependencies:
       nanostores: 0.10.0
-      preact: 10.19.3
+      preact: 10.19.6
     dev: false
 
   /@nodelib/fs.scandir@2.1.5:
@@ -1192,7 +1192,7 @@ packages:
       tslib: 2.6.2
     dev: true
 
-  /@preact/preset-vite@2.7.0(@babel/core@7.23.9)(preact@10.19.3)(vite@5.1.4):
+  /@preact/preset-vite@2.7.0(@babel/core@7.23.9)(preact@10.19.6)(vite@5.1.4):
     resolution: {integrity: sha512-m5N0FVtxbCCDxNk55NGhsRpKJChYcupcuQHzMJc/Bll07IKZKn8amwYciyKFS9haU6AgzDAJ/ewvApr6Qg1DHw==}
     peerDependencies:
       '@babel/core': 7.x
@@ -1201,7 +1201,7 @@ packages:
       '@babel/core': 7.23.9
       '@babel/plugin-transform-react-jsx': 7.23.4(@babel/core@7.23.9)
       '@babel/plugin-transform-react-jsx-development': 7.22.5(@babel/core@7.23.9)
-      '@prefresh/vite': 2.4.4(preact@10.19.3)(vite@5.1.4)
+      '@prefresh/vite': 2.4.4(preact@10.19.6)(vite@5.1.4)
       '@rollup/pluginutils': 4.2.1
       babel-plugin-transform-hook-names: 1.0.2(@babel/core@7.23.9)
       debug: 4.3.4
@@ -1217,32 +1217,32 @@ packages:
     resolution: {integrity: sha512-dE6f+WCX5ZUDwXzUIWNMhhglmuLpqJhuy3X3xHrhZYI0Hm2LyQwOu0l9mdPiWrVNsE+Q7txOnJPgtIqHCYoBVA==}
     dev: false
 
-  /@preact/signals@1.2.2(preact@10.19.3):
+  /@preact/signals@1.2.2(preact@10.19.6):
     resolution: {integrity: sha512-ColCqdo4cRP18bAuIR4Oik5rDpiyFtPIJIygaYPMEAwTnl4buWkBOflGBSzhYyPyJfKpkwlekrvK+1pzQ2ldWw==}
     peerDependencies:
       preact: 10.x
     dependencies:
       '@preact/signals-core': 1.5.1
-      preact: 10.19.3
+      preact: 10.19.6
     dev: false
 
   /@prefresh/babel-plugin@0.5.1:
     resolution: {integrity: sha512-uG3jGEAysxWoyG3XkYfjYHgaySFrSsaEb4GagLzYaxlydbuREtaX+FTxuIidp241RaLl85XoHg9Ej6E4+V1pcg==}
     dev: false
 
-  /@prefresh/core@1.5.2(preact@10.19.3):
+  /@prefresh/core@1.5.2(preact@10.19.6):
     resolution: {integrity: sha512-A/08vkaM1FogrCII5PZKCrygxSsc11obExBScm3JF1CryK2uDS3ZXeni7FeKCx1nYdUkj4UcJxzPzc1WliMzZA==}
     peerDependencies:
       preact: ^10.0.0
     dependencies:
-      preact: 10.19.3
+      preact: 10.19.6
     dev: false
 
   /@prefresh/utils@1.2.0:
     resolution: {integrity: sha512-KtC/fZw+oqtwOLUFM9UtiitB0JsVX0zLKNyRTA332sqREqSALIIQQxdUCS1P3xR/jT1e2e8/5rwH6gdcMLEmsQ==}
     dev: false
 
-  /@prefresh/vite@2.4.4(preact@10.19.3)(vite@5.1.4):
+  /@prefresh/vite@2.4.4(preact@10.19.6)(vite@5.1.4):
     resolution: {integrity: sha512-7jcz3j5pXufOWTjl31n0Lc3BcU8oGoacoaWx/Ur1QJ+fd4Xu0G7g/ER1xV02x7DCiVoFi7xtSgaophOXoJvpmA==}
     peerDependencies:
       preact: ^10.4.0
@@ -1250,10 +1250,10 @@ packages:
     dependencies:
       '@babel/core': 7.23.5
       '@prefresh/babel-plugin': 0.5.1
-      '@prefresh/core': 1.5.2(preact@10.19.3)
+      '@prefresh/core': 1.5.2(preact@10.19.6)
       '@prefresh/utils': 1.2.0
       '@rollup/pluginutils': 4.2.1
-      preact: 10.19.3
+      preact: 10.19.6
       vite: 5.1.4(@types/node@20.10.4)
     transitivePeerDependencies:
       - supports-color
@@ -5355,17 +5355,17 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
 
-  /preact-render-to-string@6.3.1(preact@10.19.3):
+  /preact-render-to-string@6.3.1(preact@10.19.6):
     resolution: {integrity: sha512-NQ28WrjLtWY6lKDlTxnFpKHZdpjfF+oE6V4tZ0rTrunHrtZp6Dm0oFrcJalt/5PNeqJz4j1DuZDS0Y6rCBoqDA==}
     peerDependencies:
       preact: '>=10'
     dependencies:
-      preact: 10.19.3
+      preact: 10.19.6
       pretty-format: 3.8.0
     dev: false
 
-  /preact@10.19.3:
-    resolution: {integrity: sha512-nHHTeFVBTHRGxJXKkKu5hT8C/YWBkPso4/Gad6xuj5dbptt9iF9NZr9pHbPhBrnT2klheu7mHTxTZ/LjwJiEiQ==}
+  /preact@10.19.6:
+    resolution: {integrity: sha512-gympg+T2Z1fG1unB8NH29yHJwnEaCH37Z32diPDku316OTnRPeMbiRV9kTrfZpocXjdfnWuFUl/Mj4BHaf6gnw==}
     dev: false
 
   /prebuild-install@7.1.1:
