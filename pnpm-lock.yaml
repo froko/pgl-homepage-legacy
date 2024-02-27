@@ -28,7 +28,7 @@ dependencies:
     version: 4.0.3(@types/node@20.11.20)(typescript@5.3.3)
   auth0-js:
     specifier: ^9.23.3
-    version: 9.23.3
+    version: 9.24.1
   contentful:
     specifier: ^10.6.14
     version: 10.6.22
@@ -2043,8 +2043,8 @@ packages:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
     dev: false
 
-  /auth0-js@9.23.3:
-    resolution: {integrity: sha512-VVh3/1SiECWlwDU3XQ3Xhg40W9Buu18jYZYO93PEerApacm508v67SxBLKh5WeCGaqCUyPamU+NusguhWVn1Qw==}
+  /auth0-js@9.24.1:
+    resolution: {integrity: sha512-Zax2BOEP6ZRLWNnG59JiquIHiWkgePOOfNv3UgA30Vm0jMQY4SyNAI6yG2+xr5rBxjs/L38xZAHLJm5lcwwGog==}
     dependencies:
       base64-js: 1.5.1
       idtoken-verifier: 2.2.4
