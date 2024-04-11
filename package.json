@@ -11,25 +11,25 @@
     "deploy": "node deploy.cjs"
   },
   "dependencies": {
-    "@astrojs/preact": "^3.1.1",
+    "@astrojs/preact": "^3.2.0",
     "@astrojs/tailwind": "^5.1.0",
     "@contentful/rich-text-html-renderer": "^16.3.5",
     "@nanostores/persistent": "^0.10.1",
     "@nanostores/preact": "^0.5.1",
     "@tailwindcss/typography": "^0.5.12",
-    "astro": "^4.5.12",
+    "astro": "^4.6.0",
     "auth0-js": "^9.24.1",
-    "contentful": "^10.8.6",
-    "nanostores": "^0.10.0",
-    "preact": "^10.20.1",
-    "simplelightbox": "^2.14.2",
+    "contentful": "^10.8.7",
+    "nanostores": "^0.10.3",
+    "preact": "^10.20.2",
+    "simplelightbox": "^2.14.3",
     "tailwindcss": "^3.4.3"
   },
   "devDependencies": {
     "@types/auth0-js": "^9.21.5",
-    "@types/node": "^20.12.2",
-    "@typescript-eslint/eslint-plugin": "^7.4.0",
-    "@typescript-eslint/parser": "^7.4.0",
+    "@types/node": "^20.12.7",
+    "@typescript-eslint/eslint-plugin": "^7.6.0",
+    "@typescript-eslint/parser": "^7.6.0",
     "basic-ftp": "^5.0.5",
     "dotenv": "^16.4.5",
     "eslint": "^8.57.0",
@@ -43,9 +43,9 @@
     "ftp-deploy": "^2.4.7",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
-    "prettier-plugin-astro-organize-imports": "^0.4.3",
+    "prettier-plugin-astro-organize-imports": "^0.4.4",
     "prettier-plugin-tailwindcss": "^0.5.13",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.5"
   },
   "packageManager": "pnpm@8.15.5"
 }
