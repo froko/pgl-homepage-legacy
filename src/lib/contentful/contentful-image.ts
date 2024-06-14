@@ -24,7 +24,7 @@ type ContentfulImageOptionsRadius = number | 'max';
 type ContentfulImageOptionsQuality = number;
 type ContentfulImageOptionsBackgroundColor = string;
 
-type ContentfulImageOptions = {
+interface ContentfulImageOptions {
   format?: ContentfulImageOptionsFormat;
   width?: ContentfulImageOptionsWidth;
   height?: ContentfulImageOptionsHeight;
@@ -33,7 +33,7 @@ type ContentfulImageOptions = {
   radius?: ContentfulImageOptionsRadius;
   quality?: ContentfulImageOptionsQuality;
   backgroundColor?: ContentfulImageOptionsBackgroundColor;
-};
+}
 
 const getContentfulImageSrcUrl = (src: ContentfulImageSource) => {
   // Get provided raw URL string
