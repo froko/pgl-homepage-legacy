@@ -1,11 +1,11 @@
 import type { ComponentChildren, FunctionComponent } from 'preact';
 
-type Props = {
+interface Props {
   type: 'button' | 'submit';
   loading: boolean;
   onClick?: () => void;
   children: ComponentChildren;
-};
+}
 
 const Button: FunctionComponent<Props> = ({ type, loading, onClick, children }) => {
   const buttonStyles =

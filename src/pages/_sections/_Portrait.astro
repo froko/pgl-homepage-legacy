@@ -16,7 +16,7 @@ const portraitUrl = portrait.fields.file?.url;
 
 <div class="m-2 flex w-24 flex-col items-center lg:w-56">
   <img
-    src={contentfulImage(portraitUrl!, {
+    src={contentfulImage(portraitUrl ?? '', {
       quality: 80,
       height: portraitSize,
       width: portraitSize,

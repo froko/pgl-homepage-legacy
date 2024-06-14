@@ -47,7 +47,7 @@ const setSession =
       window.history.replaceState({}, document.title, '/');
       cb();
     } else if (authResult) {
-      let expiresAt = 60 * 1000 + new Date().getTime();
+      const expiresAt = 60 * 1000 + new Date().getTime();
       sessionStorage.setItem('expires_at', JSON.stringify(expiresAt));
       window.history.replaceState({}, document.title, '/intern');
       cb();

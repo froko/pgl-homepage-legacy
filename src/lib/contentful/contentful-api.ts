@@ -24,7 +24,7 @@ export async function fetchFromContentful<T>(contentTypeId: CONTENT_TYPE): Promi
   return topic.items.map((i) => i.fields) as unknown as T[];
 }
 
-export type NewsItem = {
+export interface NewsItem {
   titel: EntryFields.Symbol;
   slug: EntryFields.Symbol;
   mediaSlug?: EntryFields.Symbol;
@@ -33,9 +33,9 @@ export type NewsItem = {
   text: any;
   vorschaubild: Asset;
   bilder?: Asset[];
-};
+}
 
-export type MediaItem = {
+export interface MediaItem {
   titel: EntryFields.Symbol;
   slug: EntryFields.Symbol;
   jahr: EntryFields.Integer;
@@ -43,46 +43,46 @@ export type MediaItem = {
   vorschaubild: Asset;
   youtubeLinks?: EntryFields.Symbol[];
   bilder: Asset[];
-};
+}
 
-export type AudioArchivItem = {
+export interface AudioArchivItem {
   titel: EntryFields.Symbol;
   coverFront: Asset;
   coverBack?: Asset;
   audioFiles: Asset[];
-};
+}
 
-export type Mitglied = {
+export interface Mitglied {
   name: EntryFields.Symbol;
   instrument: 'Bass' | 'Cinelle' | 'Drums' | 'Klarinette' | 'Lyra' | 'Pauke' | 'Posaune' | 'Tambourmajor' | 'Trompete';
   eintrittsjahr?: EntryFields.Integer;
   funktion?: EntryFields.Symbol;
   portrait: Asset;
-};
+}
 
-export type InternAufnahme = {
+export interface InternAufnahme {
   titel: EntryFields.Symbol;
   audiofile: Asset;
-};
+}
 
-export type InternCalendarItem = {
+export interface InternCalendarItem {
   anlass: EntryFields.Symbol;
   datum: EntryFields.Date;
   ort: EntryFields.Symbol;
-};
+}
 
-export type InternDokument = {
+export interface InternDokument {
   titel: EntryFields.Symbol;
   dokument: Asset;
-};
+}
 
-export type InternNewsletterItem = {
+export interface InternNewsletterItem {
   titel: EntryFields.Symbol;
   dokument: Asset;
-};
+}
 
-export type InternNotenItem = {
+export interface InternNotenItem {
   titel: EntryFields.Symbol;
   register: 'Alle' | 'Bass' | 'Klarinette' | 'Lyra' | 'Posaune1' | 'Posaune2' | 'Trompete1' | 'Trompete2';
   dokument: Asset;
-};
+}

@@ -13,10 +13,10 @@ const Checkout = () => {
 
   useEffect(() => {
     let cost = 0;
-    let groupedItems: (CartItem & { quantity: number })[] = [];
+    const groupedItems: (CartItem & { quantity: number })[] = [];
 
     $cartItems.forEach((item) => {
-      cost = cost + item.price!;
+      cost = cost + (item.price ?? 0);
       const index = groupedItems.findIndex((i) => i.article === item.article);
       if (index >= 0) {
         groupedItems[index].quantity++;

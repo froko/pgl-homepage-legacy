@@ -1,9 +1,9 @@
 import type { FunctionComponent } from 'preact';
 import { useEffect } from 'preact/hooks';
 
-type Props = {
+interface Props {
   images: { src: string; alt: string }[];
-};
+}
 
 const Carousel: FunctionComponent<Props> = ({ images }) => {
   useEffect(() => {
