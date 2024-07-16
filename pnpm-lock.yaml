@@ -16,7 +16,7 @@ importers:
         version: 5.1.0(astro@4.11.5(@types/node@20.14.10)(typescript@5.5.3))(tailwindcss@3.4.4)
       '@contentful/rich-text-html-renderer':
         specifier: ^16.6.1
-        version: 16.6.1
+        version: 16.6.2
       '@nanostores/persistent':
         specifier: ^0.10.1
         version: 0.10.1(nanostores@0.10.3)
@@ -261,12 +261,16 @@ packages:
   '@contentful/content-source-maps@0.6.1':
     resolution: {integrity: sha512-IjsyhakG17OC5xtIa5agVRsnjjxiJf9HZjpDIV6Ix036Pd5YHJrbyyiF4KNEmLlIqe3hQ0kHGWEs9S/HfECmRQ==}
 
-  '@contentful/rich-text-html-renderer@16.6.1':
-    resolution: {integrity: sha512-Te4rotpUmjVcdLoEsSukTkt6ssVLTtVe4Ftg1S8ANKuzo9I4+8VhZkgWS7H/G7f4FGMguAABVgN7ZqeiI5HCcw==}
+  '@contentful/rich-text-html-renderer@16.6.2':
+    resolution: {integrity: sha512-Btzw1tT2zd3OcGkCcKc6/j41Ar46SLnoMBcfxgxOauQjd7LEIzjZCEoFrTC7DahejaYOxiY3FzggwHktpOb3Wg==}
     engines: {node: '>=6.0.0'}
 
   '@contentful/rich-text-types@16.6.1':
     resolution: {integrity: sha512-Rb8QusSMSTMUP4dbpBDWgwGJoqKDYRxPcNXySP0URYTQ6pViJ2SXhVc81RJCgJ5Fb02n5ctbvDYGtcnBH8yhDw==}
+    engines: {node: '>=6.0.0'}
+
+  '@contentful/rich-text-types@16.6.2':
+    resolution: {integrity: sha512-WMo+HVSudA4J1FwBnDZeYUbH4HaT5WWOZyeSZx2KEs/vN+nuDwRpIO9esuF9C/QY2pOBC09tpdq2WI4/1kfLHA==}
     engines: {node: '>=6.0.0'}
 
   '@emnapi/runtime@1.2.0':
@@ -3133,12 +3137,14 @@ snapshots:
       '@vercel/stega': 0.1.2
       json-pointer: 0.6.2
 
-  '@contentful/rich-text-html-renderer@16.6.1':
+  '@contentful/rich-text-html-renderer@16.6.2':
     dependencies:
-      '@contentful/rich-text-types': 16.6.1
+      '@contentful/rich-text-types': 16.6.2
       escape-html: 1.0.3
 
   '@contentful/rich-text-types@16.6.1': {}
+
+  '@contentful/rich-text-types@16.6.2': {}
 
   '@emnapi/runtime@1.2.0':
     dependencies:
