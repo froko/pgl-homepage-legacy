@@ -34,7 +34,7 @@ importers:
         version: 9.26.1
       contentful:
         specifier: ^10.12.8
-        version: 10.12.8
+        version: 10.12.10
       nanostores:
         specifier: ^0.10.3
         version: 0.10.3
@@ -267,6 +267,10 @@ packages:
 
   '@contentful/rich-text-types@16.6.1':
     resolution: {integrity: sha512-Rb8QusSMSTMUP4dbpBDWgwGJoqKDYRxPcNXySP0URYTQ6pViJ2SXhVc81RJCgJ5Fb02n5ctbvDYGtcnBH8yhDw==}
+    engines: {node: '>=6.0.0'}
+
+  '@contentful/rich-text-types@16.7.0':
+    resolution: {integrity: sha512-SMW6JjJpp05CU5xBjIJp9azxFJ/bzcRzd2o9sF49C736m3aCxSobfuUIJz0dHw92MGsiFKAfzn5yTL3JMfqBqg==}
     engines: {node: '>=6.0.0'}
 
   '@emnapi/runtime@1.2.0':
@@ -1126,8 +1130,8 @@ packages:
     resolution: {integrity: sha512-HYy4ecFA76ERxz7P0jW7hgDcL8jH+bRckv2QfAwQ4k1yPP9TvxpZwrKnlLM69JOStxVkCXP37HvbjbFnjcoWdg==}
     engines: {node: '>=18'}
 
-  contentful@10.12.8:
-    resolution: {integrity: sha512-CrukpZYKsEvgQ9MZQ8v0pPz/DI+HaCR8IJM+aoxv5SH1i5TU+gGmJDzgc+JMKNs2JFPRbAvEXYQgK4gLiL2WeA==}
+  contentful@10.12.10:
+    resolution: {integrity: sha512-YVc+aCvehjsJI8K/IglbLjEAl/fiyUzorCFrgR60R4v44VMa4wmFJTrY48x+YQ7DPKZw5MzFk1wgeG74fxCN2g==}
     engines: {node: '>=18'}
 
   convert-source-map@2.0.0:
@@ -2693,8 +2697,8 @@ packages:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
 
-  type-fest@4.21.0:
-    resolution: {integrity: sha512-ADn2w7hVPcK6w1I0uWnM//y1rLXZhzB9mr0a3OirzclKF1Wp6VzevUmzz/NRAWunOT6E8HrnpGY7xOfc6K57fA==}
+  type-fest@4.22.0:
+    resolution: {integrity: sha512-hxMO1k4ip1uTVGgPbs1hVpYyhz2P91A6tQyH2H9POx3U6T3MdhIcfY8L2hRu/LRmzPFdfduOS0RIDjFlP2urPw==}
     engines: {node: '>=16'}
 
   typedarray@0.0.6:
@@ -3139,6 +3143,8 @@ snapshots:
       escape-html: 1.0.3
 
   '@contentful/rich-text-types@16.6.1': {}
+
+  '@contentful/rich-text-types@16.7.0': {}
 
   '@emnapi/runtime@1.2.0':
     dependencies:
@@ -4008,15 +4014,15 @@ snapshots:
       p-throttle: 4.1.1
       qs: 6.12.3
 
-  contentful@10.12.8:
+  contentful@10.12.10:
     dependencies:
       '@contentful/content-source-maps': 0.6.1
-      '@contentful/rich-text-types': 16.6.1
+      '@contentful/rich-text-types': 16.7.0
       axios: 1.6.8
       contentful-resolve-response: 1.8.2
       contentful-sdk-core: 8.3.1
       json-stringify-safe: 5.0.1
-      type-fest: 4.21.0
+      type-fest: 4.22.0
     transitivePeerDependencies:
       - debug
 
@@ -5815,7 +5821,7 @@ snapshots:
 
   type-fest@2.19.0: {}
 
-  type-fest@4.21.0: {}
+  type-fest@4.22.0: {}
 
   typedarray@0.0.6: {}
 
