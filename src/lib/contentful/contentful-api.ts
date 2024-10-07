@@ -1,4 +1,5 @@
-import contentful from 'contentful';
+import * as contentful from 'contentful';
+
 import type { Asset, EntryFields } from 'contentful';
 
 export type CONTENT_TYPE =
