@@ -1,14 +1,16 @@
 ---
-import { Download, Play } from '@pgl/components/icons';
-import { fetchFromContentful, type InternAufnahme } from '@pgl/contentful';
+import { Download, Play } from '@pgl/components/icons'
+import { fetchFromContentful, type InternAufnahme } from '@pgl/contentful'
 
 const byName = (a: InternAufnahme, b: InternAufnahme): number => {
-  if (a.titel < b.titel) return -1;
-  if (a.titel > b.titel) return 1;
-  return 0;
-};
+  if (a.titel < b.titel) return -1
+  if (a.titel > b.titel) return 1
+  return 0
+}
 
-const aufnahmen = (await fetchFromContentful<InternAufnahme>('internAufnahmen')).sort(byName);
+const aufnahmen = (
+  await fetchFromContentful<InternAufnahme>('internAufnahmen')
+).sort(byName)
 ---
 
 <h2>Aufnahmen</h2>
@@ -20,15 +22,13 @@ const aufnahmen = (await fetchFromContentful<InternAufnahme>('internAufnahmen'))
       <span
         data-title={aufnahme.audiofile?.fields.title}
         data-src={aufnahme.audiofile?.fields.file?.url}
-        class="play mr-4 mt-[4px] duration-300 md:hover:scale-125 md:hover:cursor-pointer"
-      >
+        class="play mr-4 mt-[4px] duration-300 md:hover:scale-125 md:hover:cursor-pointer">
         <Play />
       </span>
       <span
         data-title={aufnahme.audiofile.fields.file?.fileName}
         data-src={aufnahme.audiofile.fields.file?.url}
-        class="download mt-[4px] hidden duration-300 md:hover:scale-125 md:hover:cursor-pointer lg:block"
-      >
+        class="download mt-[4px] hidden duration-300 md:hover:scale-125 md:hover:cursor-pointer lg:block">
         <Download />
       </span>
     </div>

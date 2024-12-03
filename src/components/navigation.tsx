@@ -1,6 +1,7 @@
-import { NavigationItems } from '@pgl/data';
-import { isOpen } from '@pgl/store';
-import Overlay from './overlay';
+import { NavigationItems } from '@pgl/data'
+import { isOpen } from '@pgl/store'
+
+import Overlay from './overlay'
 
 const Navigation = () => {
   return (
@@ -11,15 +12,14 @@ const Navigation = () => {
             <a
               className="text-2xl font-bold text-pgl-blue duration-300 md:hover:text-4xl md:hover:text-pgl-blue lg:text-3xl lg:text-black"
               href={link.to}
-              onClick={() => setTimeout(() => isOpen.set(false))}
-            >
+              onClick={() => setTimeout(() => isOpen.set(false))}>
               {link.name}
             </a>
           </li>
         ))}
       </ul>
     </Overlay>
-  );
-};
+  )
+}
 
-export default Navigation;
+export default Navigation

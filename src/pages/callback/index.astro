@@ -1,14 +1,14 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro'
 ---
 
 <Layout title="PGL | Intern" />
 
 <script>
-  const payload = document.URL.split('#')[1];
+  const payload = document.URL.split('#')[1]
   if (payload.startsWith('access_token')) {
-    const expiresAt = 60 * 1000 + new Date().getTime();
-    sessionStorage.setItem('expires_at', JSON.stringify(expiresAt));
-    location.assign('/intern');
+    const expiresAt = 60 * 1000 + new Date().getTime()
+    sessionStorage.setItem('expires_at', JSON.stringify(expiresAt))
+    location.assign('/intern')
   }
 </script>

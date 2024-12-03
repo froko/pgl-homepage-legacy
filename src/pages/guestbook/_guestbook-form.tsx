@@ -1,48 +1,49 @@
-import Button from '@pgl/components/button';
-import { useState } from 'preact/hooks';
+import Button from '@pgl/components/button'
+import { useState } from 'preact/hooks'
 
 interface FormData {
-  name: string;
-  email: string;
-  message: string;
+  name: string
+  email: string
+  message: string
 }
 
 export const GuestbookForm = (props: { reload: () => void }) => {
   const [formData, updateFormData] = useState<FormData>({
     name: '',
     email: '',
-    message: ''
-  });
-  const [loading, setLoading] = useState(false);
-  const [thankYou, setThankYou] = useState(false);
+    message: '',
+  })
+  const [loading, setLoading] = useState(false)
+  const [thankYou, setThankYou] = useState(false)
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleChange = (e: any) => {
-    const fieldName: 'name' | 'email' | 'message' = e.target.name;
-    const fieldValue = e.target.value;
-    formData[fieldName] = fieldValue;
-    updateFormData(formData);
-  };
+    const fieldName: 'name' | 'email' | 'message' = e.target.name
+    const fieldValue = e.target.value
+    formData[fieldName] = fieldValue
+    updateFormData(formData)
+  }
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    setLoading(true);
+  const handleSubmit = (e: Event) => {
+    e.preventDefault()
+    setLoading(true)
 
-    const url = 'https://pgl-api.vercel.app/api/guestbook';
+    const url = 'https://pgl-api.vercel.app/api/guestbook'
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'multipart/form-data' },
-      body: JSON.stringify(formData)
-    };
+      body: JSON.stringify(formData),
+    }
 
     fetch(url, requestOptions).then(() => {
-      setLoading(false);
-      setThankYou(true);
-      props.reload();
-    });
-  };
+      setLoading(false)
+      setThankYou(true)
+      props.reload()
+    })
+  }
 
   const formStyle =
-    'w-full appearance-none rounded border py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none';
+    'w-full appearance-none rounded border py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none'
 
   return (
     <form className="w-full bg-slate-200 p-4" onSubmit={handleSubmit}>
@@ -50,13 +51,27 @@ export const GuestbookForm = (props: { reload: () => void }) => {
         {!thankYou && (
           <div className="mb-2 w-full px-2 md:w-1/2">
             <label htmlFor="name">Name*</label>
-            <input id="name" name="name" type="text" required className={formStyle} onChange={handleChange} />
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              className={formStyle}
+              onChange={handleChange}
+            />
           </div>
         )}
         {!thankYou && (
           <div className="mb-2 w-full px-2 md:w-1/2">
             <label htmlFor="email">Email*</label>
-            <input id="email" name="email" type="text" required className={formStyle} onChange={handleChange} />
+            <input
+              id="email"
+              name="email"
+              type="text"
+              required
+              className={formStyle}
+              onChange={handleChange}
+            />
           </div>
         )}
         {!thankYou && (
@@ -68,8 +83,7 @@ export const GuestbookForm = (props: { reload: () => void }) => {
               rows={5}
               required
               className={formStyle}
-              onChange={handleChange}
-            ></textarea>
+              onChange={handleChange}></textarea>
           </div>
         )}
         {thankYou ? (
@@ -83,5 +97,5 @@ export const GuestbookForm = (props: { reload: () => void }) => {
         )}
       </div>
     </form>
-  );
-};
+  )
+}

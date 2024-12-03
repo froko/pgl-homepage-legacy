@@ -1,7 +1,1 @@
-.idea
-.output/
-.astro/
-
-dist/
-
 pnpm-lock.yaml

@@ -1,11 +1,14 @@
-import { Trash } from '@pgl/components/icons';
-import type { CartItemWithQuantity } from '@pgl/data';
-import { removeFromCart } from '@pgl/store';
-import { Fragment } from 'preact/jsx-runtime';
+import { Trash } from '@pgl/components/icons'
+import type { CartItemWithQuantity } from '@pgl/data'
+import { removeFromCart } from '@pgl/store'
+import { Fragment } from 'preact/jsx-runtime'
 
-import CheckoutForm from './_checkout-form';
+import CheckoutForm from './_checkout-form'
 
-const Content = (props: { items: CartItemWithQuantity[]; totalCost: number }) => {
+const Content = (props: {
+  items: CartItemWithQuantity[]
+  totalCost: number
+}) => {
   return (
     <Fragment>
       <p>Du hast folgende Artikel in deinem Warenkorb:</p>
@@ -31,7 +34,7 @@ const Content = (props: { items: CartItemWithQuantity[]; totalCost: number }) =>
       </div>
       <CheckoutForm items={props.items} totalCost={props.totalCost} />
     </Fragment>
-  );
-};
+  )
+}
 
-export default Content;
+export default Content

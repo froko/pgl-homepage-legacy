@@ -1,2 +1,2 @@
-export * from './contentful-api';
-export * from './contentful-image';
+export * from './contentful-api'
+export * from './contentful-image'

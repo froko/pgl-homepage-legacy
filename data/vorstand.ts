@@ -1,4 +1,4 @@
-import type { Vorstand } from '.';
+import type { Vorstand } from '.'
 
 export const vorstand: Vorstand[] = [
   { name: 'Andi Felber', funktion: 'Präsident und Tambourmajor' },
@@ -6,5 +6,5 @@ export const vorstand: Vorstand[] = [
   { name: 'Markus Helfenstein', funktion: 'Kassier' },
   { name: 'Manuel Brun', funktion: '1. Beisitzer' },
   { name: 'Gaudenz Ineichen', funktion: '2. Beisitzer' },
-  { name: 'Reto Bühlmann', funktion: 'Aktuar' }
-];
+  { name: 'Reto Bühlmann', funktion: 'Aktuar' },
+]

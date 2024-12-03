@@ -1,11 +1,13 @@
 ---
-import { fetchFromContentful, type InternCalendarItem } from '@pgl/contentful';
+import { fetchFromContentful, type InternCalendarItem } from '@pgl/contentful'
 
 const byDate = (a: InternCalendarItem, b: InternCalendarItem) => {
-  return new Date(a.datum).getTime() - new Date(b.datum).getTime();
-};
+  return new Date(a.datum).getTime() - new Date(b.datum).getTime()
+}
 
-const calendarItems = (await fetchFromContentful<InternCalendarItem>('internKalender')).sort(byDate);
+const calendarItems = (
+  await fetchFromContentful<InternCalendarItem>('internKalender')
+).sort(byDate)
 ---
 
 <h2>Kalender</h2>
@@ -16,7 +18,7 @@ const calendarItems = (await fetchFromContentful<InternCalendarItem>('internKale
         {new Date(calendarItem.datum).toLocaleDateString('de-CH', {
           year: 'numeric',
           month: '2-digit',
-          day: '2-digit'
+          day: '2-digit',
         })}
         : {calendarItem.anlass}
       </div>
