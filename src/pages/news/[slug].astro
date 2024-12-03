@@ -1,42 +1,52 @@
 ---
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
+import ArrowLink from '@pgl/components/arrow-link.astro'
+import Carousel from '@pgl/components/carousel'
+import { ArrowRight } from '@pgl/components/icons'
+import {
+  contentfulImage,
+  fetchFromContentful,
+  type NewsItem,
+} from '@pgl/contentful'
+import type { Asset } from 'contentful'
 
-import ArrowLink from '@pgl/components/arrow-link.astro';
-import Carousel from '@pgl/components/carousel';
-import { ArrowRight } from '@pgl/components/icons';
-import { contentfulImage, fetchFromContentful, type NewsItem } from '@pgl/contentful';
-import type { Asset } from 'contentful';
-import Layout from '../../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro'
 
 export const getStaticPaths = async () => {
-  const newsItems = await fetchFromContentful<NewsItem>('news');
-  const pages = newsItems.map((item: any) => ({
+  const newsItems = await fetchFromContentful<NewsItem>('news')
+  const pages = newsItems.map((item: NewsItem) => ({
     params: { slug: item.slug },
     props: {
       titel: item.titel,
       pageTitle: `PGL | ${item.titel}`,
       bilder: item.bilder
         ?.filter((b: Asset) => b.fields)
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         .map((b: any) => ({
           src: contentfulImage(b.fields.file.url, {
             height: 380,
             quality: 80,
             fit: 'fill',
-            format: 'webp'
+            format: 'webp',
           }),
-          alt: b.fields.title
+          alt: b.fields.title,
         })),
       mediaSlug: item.mediaSlug,
-      datum: new Date(item.datum).toLocaleDateString('de-CH', { year: 'numeric', month: '2-digit', day: '2-digit' }),
+      datum: new Date(item.datum).toLocaleDateString('de-CH', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+      }),
       autor: item.autor,
-      content: documentToHtmlString(item.text)
-    }
-  }));
+      content: documentToHtmlString(item.text),
+    },
+  }))
 
-  return pages;
-};
+  return pages
+}
 
-const { titel, pageTitle, bilder, mediaSlug, datum, autor, content } = Astro.props;
+const { titel, pageTitle, bilder, mediaSlug, datum, autor, content } =
+  Astro.props
 ---
 
 <Layout title={pageTitle}>
@@ -47,7 +57,11 @@ const { titel, pageTitle, bilder, mediaSlug, datum, autor, content } = Astro.pro
         {
           bilder ? (
             bilder.length === 1 ? (
-              <img src={bilder[0].src} alt={bilder[0].alt} class="max-h-[300px] lg:max-h-[380px]" />
+              <img
+                src={bilder[0].src}
+                alt={bilder[0].alt}
+                class="max-h-[300px] lg:max-h-[380px]"
+              />
             ) : (
               <Carousel images={bilder} client:visible />
             )
@@ -58,7 +72,9 @@ const { titel, pageTitle, bilder, mediaSlug, datum, autor, content } = Astro.pro
             <div class="flex">
               <span class="grow" />
               <div class="flex duration-200 md:hover:scale-110">
-                <a href={`/media/${mediaSlug}`} class="w-100 text-2xl font-bold text-pgl-blue md:hover:cursor-pointer">
+                <a
+                  href={`/media/${mediaSlug}`}
+                  class="w-100 text-2xl font-bold text-pgl-blue md:hover:cursor-pointer">
                   Mehr Bilder
                 </a>
                 <ArrowRight />

@@ -1,8 +1,9 @@
 ---
-import { Download } from '@pgl/components/icons';
-import { fetchFromContentful, type InternNewsletterItem } from '@pgl/contentful';
+import { Download } from '@pgl/components/icons'
+import { fetchFromContentful, type InternNewsletterItem } from '@pgl/contentful'
 
-const newsletterItems = await fetchFromContentful<InternNewsletterItem>('internNewsletter');
+const newsletterItems =
+  await fetchFromContentful<InternNewsletterItem>('internNewsletter')
 ---
 
 <h2>Newsletter</h2>
@@ -14,8 +15,7 @@ const newsletterItems = await fetchFromContentful<InternNewsletterItem>('internN
       <span
         data-title={newsletter.dokument.fields.file?.fileName}
         data-src={newsletter.dokument.fields.file?.url}
-        class="download mt-[4px] duration-300 md:hover:scale-125 md:hover:cursor-pointer"
-      >
+        class="download mt-[4px] duration-300 md:hover:scale-125 md:hover:cursor-pointer">
         <Download />
       </span>
     </div>

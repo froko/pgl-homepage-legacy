@@ -1,19 +1,27 @@
-import { useEffect, useState } from 'preact/hooks';
-import { GuestbookForm } from './_guestbook-form';
+import { useEffect, useState } from 'preact/hooks'
+
+import { GuestbookForm } from './_guestbook-form'
+
+interface GuestbookEntry {
+  id: number
+  name: string
+  createdAt: Date
+  message: string
+}
 
 export const GuestbookEntries = () => {
-  const [loading, setLoading] = useState(true);
-  const [entries, setEntries] = useState([]);
+  const [loading, setLoading] = useState(true)
+  const [entries, setEntries] = useState([])
 
   const getEntries = async () => {
-    const response = await fetch('https://pgl-api.vercel.app/api/guestbook');
-    const guestbookEntries = await response.json();
-    setEntries(guestbookEntries);
-  };
+    const response = await fetch('https://pgl-api.vercel.app/api/guestbook')
+    const guestbookEntries = await response.json()
+    setEntries(guestbookEntries)
+  }
 
   useEffect(() => {
-    getEntries().then(() => setLoading(false));
-  }, []);
+    getEntries().then(() => setLoading(false))
+  }, [])
 
   return (
     <>
@@ -32,16 +40,23 @@ export const GuestbookEntries = () => {
         </ul>
       ) : (
         <ul>
-          {entries.map((e: any) => (
+          {entries.map((e: GuestbookEntry) => (
             <li key={e.id}>
               <b>{e.name}</b> schrieb am{' '}
-              {new Date(e.createdAt).toLocaleDateString('de-CH', { year: 'numeric', month: '2-digit', day: '2-digit' })}
+              {new Date(e.createdAt).toLocaleDateString('de-CH', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+              })}
               :<br />
-              <div dangerouslySetInnerHTML={{ __html: e.message.replace('\n', '<br />') }}></div>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: e.message.replace('\n', '<br />'),
+                }}></div>
             </li>
           ))}
         </ul>
       )}
     </>
-  );
-};
+  )
+}

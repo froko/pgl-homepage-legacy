@@ -1,1 +1,1 @@
-export * from './Layout.astro';
+export * from './Layout.astro'

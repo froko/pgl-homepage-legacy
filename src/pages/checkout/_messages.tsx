@@ -1,10 +1,17 @@
-import type { CartItemWithQuantity, CheckoutFormData } from '@pgl/data';
+import type { CartItemWithQuantity, CheckoutFormData } from '@pgl/data'
 
-export const CustomerMessage = (items: CartItemWithQuantity[], totalCost: number, vorname: string) => {
+export const CustomerMessage = (
+  items: CartItemWithQuantity[],
+  totalCost: number,
+  vorname: string,
+) => {
   const articlesAsString = items
-    .map((item) => `<li>${item.quantity}x ${item.article} (CHF ${item.price?.toFixed(2)})</li>`)
+    .map(
+      (item) =>
+        `<li>${item.quantity}x ${item.article} (CHF ${item.price?.toFixed(2)})</li>`,
+    )
     .toString()
-    .replace(/,/g, '');
+    .replace(/,/g, '')
 
   return `
       Hallo ${vorname}<br /><br />
@@ -20,14 +27,21 @@ export const CustomerMessage = (items: CartItemWithQuantity[], totalCost: number
       <b>6000 Luzern</b><br /><br />
       Alternativ kannst du auch unseren QR-Einzahlungsschein im Anhang für die Zahlung verwenden.<br /><br /><br />
       Beste Grüsse,<br />
-      Pilatusgeister Luzern<br />`;
-};
+      Pilatusgeister Luzern<br />`
+}
 
-export const ShopMessage = (items: CartItemWithQuantity[], totalCost: number, formData: CheckoutFormData) => {
+export const ShopMessage = (
+  items: CartItemWithQuantity[],
+  totalCost: number,
+  formData: CheckoutFormData,
+) => {
   const articlesAsString = items
-    .map((item) => `<li>${item.quantity}x ${item.article} (CHF ${item.price?.toFixed(2)})</li>`)
+    .map(
+      (item) =>
+        `<li>${item.quantity}x ${item.article} (CHF ${item.price?.toFixed(2)})</li>`,
+    )
     .toString()
-    .replace(/,/g, '');
+    .replace(/,/g, '')
 
   return `
       Hallo<br /><br />
@@ -39,5 +53,5 @@ export const ShopMessage = (items: CartItemWithQuantity[], totalCost: number, fo
       <b>${formData.adresse}</b><br />
       <b>${formData.plz} ${formData.ort}</b><br /><br />
       Email: ${formData.email}<br />
-      Telefonnummer: ${formData.phone ?? 'unbekannt'}`;
-};
+      Telefonnummer: ${formData.phone ?? 'unbekannt'}`
+}

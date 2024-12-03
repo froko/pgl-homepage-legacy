@@ -1,20 +1,24 @@
 ---
-import { fetchFromContentful, type NewsItem } from '@pgl/contentful';
-import NewsCard from './_NewsCard.astro';
+import { fetchFromContentful, type NewsItem } from '@pgl/contentful'
+
+import NewsCard from './_NewsCard.astro'
 
 const byDatum = (a: NewsItem, b: NewsItem): number => {
-  if (a.datum < b.datum) return 1;
-  if (a.datum > b.datum) return -1;
-  return 0;
-};
+  if (a.datum < b.datum) return 1
+  if (a.datum > b.datum) return -1
+  return 0
+}
 
-const newsItems = (await fetchFromContentful<NewsItem>('news')).sort(byDatum).slice(0, 6);
+const newsItems = (await fetchFromContentful<NewsItem>('news'))
+  .sort(byDatum)
+  .slice(0, 6)
 ---
 
 <section id="news" class="bg-slate-100">
   <article class="container">
     <h1>News</h1>
-    <div class="grid grid-cols-1 items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4">
+    <div
+      class="grid grid-cols-1 items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4">
       {newsItems.map((item) => <NewsCard {...item} />)}
     </div>
   </article>

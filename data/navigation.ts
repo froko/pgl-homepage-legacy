@@ -1,4 +1,4 @@
-import type { NavigationItem } from '.';
+import type { NavigationItem } from '.'
 
 export const NavigationItems: NavigationItem[] = [
   { name: 'News', to: '/#news' },
@@ -8,5 +8,5 @@ export const NavigationItems: NavigationItem[] = [
   { name: 'Shop', to: '/#shop' },
   { name: 'Kontakt', to: '/#contact' },
   { name: 'Gästebuch', to: '/guestbook' },
-  { name: 'Interner Bereich', to: 'https://pgl-preview.netlify.app/intern' }
-];
+  { name: 'Interner Bereich', to: 'https://pgl-preview.netlify.app/intern' },
+]

@@ -1,17 +1,25 @@
 ---
-import type { MediaItem } from '@pgl/contentful';
-import BilderArchivCard from './_bilder-archiv-card.astro';
+import type { MediaItem } from '@pgl/contentful'
 
-const { jahr, media } = Astro.props;
+import BilderArchivCard from './_bilder-archiv-card.astro'
+
+const { jahr, media } = Astro.props
 ---
 
 <article>
   <h2 class="mt-16">Schon fast Antik!</h2>
 </article>
-<div class="grid grid-cols-1 items-stretch gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-4">
+<div
+  class="grid grid-cols-1 items-stretch gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-4">
   {
     media
       .filter((m: MediaItem) => m.jahr < jahr)
-      .map((m: MediaItem) => <BilderArchivCard slug={m.slug} titel={m.titel} vorschaubild={m.vorschaubild} />)
+      .map((m: MediaItem) => (
+        <BilderArchivCard
+          slug={m.slug}
+          titel={m.titel}
+          vorschaubild={m.vorschaubild}
+        />
+      ))
   }
 </div>

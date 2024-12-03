@@ -1,8 +1,8 @@
 ---
-import { Download } from '@pgl/components/icons';
-import { fetchFromContentful, type InternNotenItem } from '@pgl/contentful';
+import { Download } from '@pgl/components/icons'
+import { fetchFromContentful, type InternNotenItem } from '@pgl/contentful'
 
-const notenItems = await fetchFromContentful<InternNotenItem>('internNoten');
+const notenItems = await fetchFromContentful<InternNotenItem>('internNoten')
 ---
 
 <h2>Noten</h2>
@@ -14,8 +14,7 @@ const notenItems = await fetchFromContentful<InternNotenItem>('internNoten');
       <span
         data-title={noten.dokument.fields.file?.fileName}
         data-src={noten.dokument.fields.file?.url}
-        class="download mt-[4px] duration-300 md:hover:scale-125 md:hover:cursor-pointer"
-      >
+        class="download mt-[4px] duration-300 md:hover:scale-125 md:hover:cursor-pointer">
         <Download />
       </span>
     </div>

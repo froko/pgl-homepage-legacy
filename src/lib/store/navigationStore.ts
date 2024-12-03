@@ -1,4 +1,4 @@
-import { atom } from 'nanostores';
+import { atom } from 'nanostores'
 
-export const isOpen = atom(false);
-export const isHidden = atom(false);
+export const isOpen = atom(false)
+export const isHidden = atom(false)

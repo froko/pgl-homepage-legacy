@@ -1,21 +1,30 @@
 ---
-import type { CartItem } from '@pgl/data';
-import ProductCard from './_ProductCard';
+import type { CartItem } from '@pgl/data'
 
-const sujet2023: CartItem = { article: 'PGL Sujet 2023' };
-const sujet2024: CartItem = { article: 'PGL Sujet 2024' };
-const jubiPin: CartItem = { article: 'Jubi-Pin', description: '35 x 35 mm / Silber', price: 10 };
-const pglPin: CartItem = { article: 'PGL-Pin', description: '25 x 21 mm / Silber', price: 10 };
+import ProductCard from './_ProductCard'
+
+const sujet2023: CartItem = { article: 'PGL Sujet 2023' }
+const sujet2024: CartItem = { article: 'PGL Sujet 2024' }
+const jubiPin: CartItem = {
+  article: 'Jubi-Pin',
+  description: '35 x 35 mm / Silber',
+  price: 10,
+}
+const pglPin: CartItem = {
+  article: 'PGL-Pin',
+  description: '25 x 21 mm / Silber',
+  price: 10,
+}
 const halleluja: CartItem = {
   article: 'CD "Halleluja" (2016)',
   description: 'Der volle PGL Sound für zuhause',
-  price: 25
-};
+  price: 25,
+}
 const chianti: CartItem = {
   article: 'CD "Chianti" (2006)',
   description: 'Der volle PGL Sound für zuhause',
-  price: 25
-};
+  price: 25,
+}
 ---
 
 <section id="shop" class="bg-slate-100">
@@ -23,25 +32,39 @@ const chianti: CartItem = {
     <article>
       <h1>Shop</h1>
       <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <ProductCard item={sujet2023} vorschaubild="/sujet-2023.webp" client:visible>
+        <ProductCard
+          item={sujet2023}
+          vorschaubild="/sujet-2023.webp"
+          client:visible>
           <span class="text-base leading-none"
-            >Nur gesamtes Ensemble. Kein Einzelverkauf. Kontaktaufnahme via <a href="mailto:info@pgl.ch">info@pgl.ch</a
+            >Nur gesamtes Ensemble. Kein Einzelverkauf. Kontaktaufnahme via <a
+              href="mailto:info@pgl.ch">info@pgl.ch</a
             >.</span
           >
         </ProductCard>
-        <ProductCard item={sujet2024} vorschaubild="/sujet-2024.webp" client:visible>
+        <ProductCard
+          item={sujet2024}
+          vorschaubild="/sujet-2024.webp"
+          client:visible>
           <span class="text-base"
-            >Nur gesamtes Ensemble. Kein Einzelverkauf. Kontaktaufnahme via <a href="mailto:info@pgl.ch">info@pgl.ch</a
+            >Nur gesamtes Ensemble. Kein Einzelverkauf. Kontaktaufnahme via <a
+              href="mailto:info@pgl.ch">info@pgl.ch</a
             >.</span
           >
         </ProductCard>
-        <ProductCard item={jubiPin} vorschaubild="/jubi-pin.webp" client:visible>
+        <ProductCard
+          item={jubiPin}
+          vorschaubild="/jubi-pin.webp"
+          client:visible>
           <span>{jubiPin.description}</span>
         </ProductCard>
         <ProductCard item={pglPin} vorschaubild="/pgl-pin.webp" client:visible>
           <span>{pglPin.description}</span>
         </ProductCard>
-        <ProductCard item={halleluja} vorschaubild="/halleluja.webp" client:visible>
+        <ProductCard
+          item={halleluja}
+          vorschaubild="/halleluja.webp"
+          client:visible>
           <p class="m-0 text-sm">01. Halleluja</p>
           <p class="m-0 text-sm">02. Mein Heimatland</p>
           <p class="m-0 text-sm">03. Highland Cathedral</p>

@@ -1,10 +1,17 @@
 ---
-import ArrowLink from '@pgl/components/arrow-link.astro';
-import { Download, Play } from '@pgl/components/icons';
-import { contentfulImage, fetchFromContentful, type AudioArchivItem } from '@pgl/contentful';
-import Layout from '../../layouts/Layout.astro';
+import ArrowLink from '@pgl/components/arrow-link.astro'
+import { Download, Play } from '@pgl/components/icons'
+import {
+  type AudioArchivItem,
+  contentfulImage,
+  fetchFromContentful,
+} from '@pgl/contentful'
+import type { Asset } from 'contentful'
 
-const audioArchivItems = await fetchFromContentful<AudioArchivItem>('audioArchiv');
+import Layout from '../../layouts/Layout.astro'
+
+const audioArchivItems =
+  await fetchFromContentful<AudioArchivItem>('audioArchiv')
 ---
 
 <Layout title="PGL | Tonträger">
@@ -14,6 +21,7 @@ const audioArchivItems = await fetchFromContentful<AudioArchivItem>('audioArchiv
         <ArrowLink style="mt-12" href="/#media" content="Zurück zur Galerie" />
         <h1>Tonträger</h1>
         {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           audioArchivItems.map((m: any) => (
             <div class="mt-12 grid grid-cols-1 place-content-start gap-8 lg:grid-cols-2">
               <div>
@@ -23,7 +31,7 @@ const audioArchivItems = await fetchFromContentful<AudioArchivItem>('audioArchiv
                     width: 400,
                     quality: 80,
                     fit: 'fill',
-                    format: 'webp'
+                    format: 'webp',
                   })}
                   alt={m.titel}
                   class="m-0"
@@ -35,7 +43,7 @@ const audioArchivItems = await fetchFromContentful<AudioArchivItem>('audioArchiv
                       width: 400,
                       quality: 80,
                       fit: 'fill',
-                      format: 'webp'
+                      format: 'webp',
                     })}
                     alt={m.titel}
                     class="m-0 hidden lg:block"
@@ -44,22 +52,21 @@ const audioArchivItems = await fetchFromContentful<AudioArchivItem>('audioArchiv
               </div>
 
               <div>
-                {m.audioFiles.map((a: any) => (
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                {m.audioFiles.map((a: Asset) => (
                   <div class="mb-2 flex w-full px-2 md:hover:bg-slate-300">
                     <span>{a.fields.description}</span>
                     <span class="grow" />
                     <span
                       data-title={a.fields.title}
-                      data-src={a.fields.file.url}
-                      class="play mr-4 mt-[6px] md:hover:cursor-pointer"
-                    >
+                      data-src={a.fields.file?.url}
+                      class="play mr-4 mt-[6px] md:hover:cursor-pointer">
                       <Play />
                     </span>
                     <span
                       data-title={a.fields.title}
-                      data-src={a.fields.file.url}
-                      class="download mt-[6px] hidden md:hover:cursor-pointer lg:block"
-                    >
+                      data-src={a.fields.file?.url}
+                      class="download mt-[6px] hidden md:hover:cursor-pointer lg:block">
                       <Download />
                     </span>
                   </div>
@@ -75,13 +82,22 @@ const audioArchivItems = await fetchFromContentful<AudioArchivItem>('audioArchiv
       <div class="w-100 content-center justify-center lg:flex">
         <span class="grow"></span>
         <div class="flex content-evenly">
-          <p id="title" class="w-100 mb-4 mr-8 font-bold text-pgl-blue lg:mb-0 lg:mt-3 lg:text-xl"></p>
+          <p
+            id="title"
+            class="w-100 mb-4 mr-8 font-bold text-pgl-blue lg:mb-0 lg:mt-3 lg:text-xl">
+          </p>
           <span class="grow"></span>
-          <span id="close-mobile" class="-mt-1 text-3xl font-bold lg:hidden">&times;</span>
+          <span id="close-mobile" class="-mt-1 text-3xl font-bold lg:hidden"
+            >&times;</span
+          >
         </div>
-        <audio id="audio" controls class="w-full lg:w-1/4"><track kind="captions" /></audio>
+        <audio id="audio" controls class="w-full lg:w-1/4"
+          ><track kind="captions" /></audio
+        >
         <span class="grow"></span>
-        <span id="close-desktop" class="mr-4 hidden text-3xl font-bold hover:cursor-pointer lg:mt-2 lg:block">
+        <span
+          id="close-desktop"
+          class="mr-4 hidden text-3xl font-bold hover:cursor-pointer lg:mt-2 lg:block">
           &times;
         </span>
       </div>
@@ -90,53 +106,53 @@ const audioArchivItems = await fetchFromContentful<AudioArchivItem>('audioArchiv
 </Layout>
 
 <script>
-  const player = document.getElementById('player');
-  const title = document.getElementById('title');
-  const audio = document.getElementById('audio') as HTMLAudioElement;
-  const closeDesktop = document.getElementById('close-desktop');
-  const closeMobile = document.getElementById('close-mobile');
-  const playElements = document.querySelectorAll('.play');
-  const downloadElements = document.querySelectorAll('.download');
+  const player = document.getElementById('player')
+  const title = document.getElementById('title')
+  const audio = document.getElementById('audio') as HTMLAudioElement
+  const closeDesktop = document.getElementById('close-desktop')
+  const closeMobile = document.getElementById('close-mobile')
+  const playElements = document.querySelectorAll('.play')
+  const downloadElements = document.querySelectorAll('.download')
   if (player && title && audio) {
     playElements.forEach((element) => {
       element.addEventListener('click', () => {
-        player.classList.remove('hidden');
-        title.innerText = element.getAttribute('data-title') ?? '';
-        audio.src = `https:${element.getAttribute('data-src')}`;
-        audio.play();
-      });
-    });
+        player.classList.remove('hidden')
+        title.innerText = element.getAttribute('data-title') ?? ''
+        audio.src = `https:${element.getAttribute('data-src')}`
+        audio.play()
+      })
+    })
     if (closeDesktop) {
       closeDesktop.addEventListener('click', () => {
-        audio.pause();
-        player.classList.add('hidden');
-      });
+        audio.pause()
+        player.classList.add('hidden')
+      })
     }
 
     if (closeMobile) {
       closeMobile.addEventListener('click', () => {
-        audio.pause();
-        player.classList.add('hidden');
-      });
+        audio.pause()
+        player.classList.add('hidden')
+      })
     }
   }
 
   downloadElements.forEach((element) => {
     element.addEventListener('click', () => {
-      const url = element.getAttribute('data-src') ?? '';
-      const filename = `${element.getAttribute('data-title')}.mp3`;
-      const xhr = new XMLHttpRequest();
-      xhr.responseType = 'blob';
+      const url = element.getAttribute('data-src') ?? ''
+      const filename = `${element.getAttribute('data-title')}.mp3`
+      const xhr = new XMLHttpRequest()
+      xhr.responseType = 'blob'
       xhr.onload = function () {
-        const a = document.createElement('a');
-        a.href = window.URL.createObjectURL(xhr.response);
-        a.download = filename;
-        a.style.display = 'none';
-        document.body.appendChild(a);
-        a.click();
-      };
-      xhr.open('GET', url);
-      xhr.send();
-    });
-  });
+        const a = document.createElement('a')
+        a.href = window.URL.createObjectURL(xhr.response)
+        a.download = filename
+        a.style.display = 'none'
+        document.body.appendChild(a)
+        a.click()
+      }
+      xhr.open('GET', url)
+      xhr.send()
+    })
+  })
 </script>

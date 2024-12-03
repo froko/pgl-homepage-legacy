@@ -1,11 +1,12 @@
 ---
-import { ArrowLeft } from '@pgl/components/icons';
-import Layout from '../../layouts/Layout.astro';
-import Aufnahmen from './_aufnahmen.astro';
-import Calendar from './_calendar.astro';
-import Documents from './_documents.astro';
-import Newsletter from './_newsletter.astro';
-import Noten from './_noten.astro';
+import { ArrowLeft } from '@pgl/components/icons'
+
+import Layout from '../../layouts/Layout.astro'
+import Aufnahmen from './_aufnahmen.astro'
+import Calendar from './_calendar.astro'
+import Documents from './_documents.astro'
+import Newsletter from './_newsletter.astro'
+import Noten from './_noten.astro'
 ---
 
 <Layout title="PGL | Intern">
@@ -16,7 +17,11 @@ import Noten from './_noten.astro';
           <span class="grow"></span>
           <div class="flex duration-200 md:hover:scale-110">
             <ArrowLeft />
-            <button id="logout" class="w-100 text-2xl font-bold text-pgl-blue md:hover:cursor-pointer">Abmelden</button>
+            <button
+              id="logout"
+              class="w-100 text-2xl font-bold text-pgl-blue md:hover:cursor-pointer"
+              >Abmelden</button
+            >
           </div>
         </div>
         <h1>Interner Bereich</h1>
@@ -35,13 +40,22 @@ import Noten from './_noten.astro';
     <div class="w-100 content-center justify-center lg:flex">
       <span class="grow"></span>
       <div class="flex content-evenly">
-        <p id="title" class="w-100 mb-4 mr-8 font-bold text-pgl-blue lg:mb-0 lg:mt-3 lg:text-xl"></p>
+        <p
+          id="title"
+          class="w-100 mb-4 mr-8 font-bold text-pgl-blue lg:mb-0 lg:mt-3 lg:text-xl">
+        </p>
         <span class="grow"></span>
-        <span id="close-mobile" class="-mt-1 text-3xl font-bold lg:hidden">&times;</span>
+        <span id="close-mobile" class="-mt-1 text-3xl font-bold lg:hidden"
+          >&times;</span
+        >
       </div>
-      <audio id="audio" controls class="w-full lg:w-1/4"><track kind="captions" /></audio>
+      <audio id="audio" controls class="w-full lg:w-1/4"
+        ><track kind="captions" /></audio
+      >
       <span class="grow"></span>
-      <span id="close-desktop" class="mr-4 hidden text-3xl font-bold hover:cursor-pointer lg:mt-2 lg:block">
+      <span
+        id="close-desktop"
+        class="mr-4 hidden text-3xl font-bold hover:cursor-pointer lg:mt-2 lg:block">
         &times;
       </span>
     </div>
@@ -49,70 +63,70 @@ import Noten from './_noten.astro';
 </Layout>
 
 <script>
-  import { isAuthenticated, login, logout } from '@pgl/auth';
+  import { isAuthenticated, login, logout } from '@pgl/auth'
 
-  document.querySelector('#logout')?.addEventListener('click', () => logout());
+  document.querySelector('#logout')?.addEventListener('click', () => logout())
   document.addEventListener('DOMContentLoaded', () => {
     if (isAuthenticated()) {
-      document.querySelector('main')?.removeAttribute('hidden');
+      document.querySelector('main')?.removeAttribute('hidden')
     } else {
-      login();
+      login()
     }
-  });
+  })
 </script>
 
 <script>
-  const downloadElements = document.querySelectorAll('.download');
+  const downloadElements = document.querySelectorAll('.download')
 
   downloadElements.forEach((element) => {
     element.addEventListener('click', () => {
-      const url = element.getAttribute('data-src') ?? '';
-      const filename = `${element.getAttribute('data-title')}`;
-      const xhr = new XMLHttpRequest();
-      xhr.responseType = 'blob';
+      const url = element.getAttribute('data-src') ?? ''
+      const filename = `${element.getAttribute('data-title')}`
+      const xhr = new XMLHttpRequest()
+      xhr.responseType = 'blob'
       xhr.onload = function () {
-        const a = document.createElement('a');
-        a.href = window.URL.createObjectURL(xhr.response);
-        a.download = filename;
-        a.style.display = 'none';
-        document.body.appendChild(a);
-        a.click();
-      };
-      xhr.open('GET', url);
-      xhr.send();
-    });
-  });
+        const a = document.createElement('a')
+        a.href = window.URL.createObjectURL(xhr.response)
+        a.download = filename
+        a.style.display = 'none'
+        document.body.appendChild(a)
+        a.click()
+      }
+      xhr.open('GET', url)
+      xhr.send()
+    })
+  })
 </script>
 
 <script>
-  const player = document.getElementById('player');
-  const title = document.getElementById('title');
-  const audio = document.getElementById('audio') as HTMLAudioElement;
-  const closeDesktop = document.getElementById('close-desktop');
-  const closeMobile = document.getElementById('close-mobile');
-  const playElements = document.querySelectorAll('.play');
+  const player = document.getElementById('player')
+  const title = document.getElementById('title')
+  const audio = document.getElementById('audio') as HTMLAudioElement
+  const closeDesktop = document.getElementById('close-desktop')
+  const closeMobile = document.getElementById('close-mobile')
+  const playElements = document.querySelectorAll('.play')
 
   if (player && title && audio) {
     playElements.forEach((element) => {
       element.addEventListener('click', () => {
-        player.classList.remove('hidden');
-        title.innerText = element.getAttribute('data-title') ?? '';
-        audio.src = `https:${element.getAttribute('data-src')}`;
-        audio.play();
-      });
-    });
+        player.classList.remove('hidden')
+        title.innerText = element.getAttribute('data-title') ?? ''
+        audio.src = `https:${element.getAttribute('data-src')}`
+        audio.play()
+      })
+    })
     if (closeDesktop) {
       closeDesktop.addEventListener('click', () => {
-        audio.pause();
-        player.classList.add('hidden');
-      });
+        audio.pause()
+        player.classList.add('hidden')
+      })
     }
 
     if (closeMobile) {
       closeMobile.addEventListener('click', () => {
-        audio.pause();
-        player.classList.add('hidden');
-      });
+        audio.pause()
+        player.classList.add('hidden')
+      })
     }
   }
 </script>

@@ -1,11 +1,14 @@
 ---
-import ArrowLink from '@pgl/components/arrow-link.astro';
-import { fetchFromContentful, type MediaItem } from '@pgl/contentful';
-import Layout from '../../layouts/Layout.astro';
-import BilderArchivJahr from './_bilder-archiv-jahr.astro';
-import BilderArchivOlderThan from './_bilder-archiv-older-than.astro';
+import ArrowLink from '@pgl/components/arrow-link.astro'
+import { fetchFromContentful, type MediaItem } from '@pgl/contentful'
 
-const mediaItems = (await fetchFromContentful<MediaItem>('media')).filter((m: any) => m.archiv);
+import Layout from '../../layouts/Layout.astro'
+import BilderArchivJahr from './_bilder-archiv-jahr.astro'
+import BilderArchivOlderThan from './_bilder-archiv-older-than.astro'
+
+const mediaItems = (await fetchFromContentful<MediaItem>('media')).filter(
+  (m: { archiv: boolean }) => m.archiv,
+)
 ---
 
 <Layout title="PGL | Archiv">

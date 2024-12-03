@@ -1,16 +1,21 @@
 ---
-import { Calendar } from '@pgl/components/icons';
-import { contentfulImage } from '@pgl/contentful';
+import { Calendar } from '@pgl/components/icons'
+import { contentfulImage } from '@pgl/contentful'
 
-const { slug, titel, vorschaubild, datum } = Astro.props;
-const link = `/news/${slug}`;
-const vorschaubildUrl = vorschaubild.fields.file.url;
-const height = 300;
-const width = 400;
-const localDate = new Date(datum).toLocaleDateString('de-CH', { year: 'numeric', month: '2-digit', day: '2-digit' });
+const { slug, titel, vorschaubild, datum } = Astro.props
+const link = `/news/${slug}`
+const vorschaubildUrl = vorschaubild.fields.file.url
+const height = 300
+const width = 400
+const localDate = new Date(datum).toLocaleDateString('de-CH', {
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+})
 ---
 
-<div class="border-b-4 border-pgl-blue shadow-xl duration-300 sm:bg-white md:hover:scale-105 md:hover:shadow-2xl">
+<div
+  class="border-b-4 border-pgl-blue shadow-xl duration-300 sm:bg-white md:hover:scale-105 md:hover:shadow-2xl">
   <a href={link}>
     <img
       src={contentfulImage(vorschaubildUrl, {
@@ -18,7 +23,7 @@ const localDate = new Date(datum).toLocaleDateString('de-CH', { year: 'numeric',
         width: width,
         quality: 80,
         fit: 'fill',
-        format: 'webp'
+        format: 'webp',
       })}
       alt={titel}
       class="m-0 h-44 rounded-t-md object-cover md:h-56"
