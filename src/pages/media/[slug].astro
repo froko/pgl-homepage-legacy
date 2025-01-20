@@ -13,7 +13,6 @@ import Layout from '../../layouts/Layout.astro'
 
 export const getStaticPaths = async () => {
   const mediaItems = await fetchFromContentful<MediaItem>('media')
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const pages = mediaItems.map((item: any) => ({
     params: { slug: item.slug },
     props: {
@@ -22,7 +21,6 @@ export const getStaticPaths = async () => {
       archiv: item.archiv,
       bilder: item.bilder
         .filter((b: Asset) => b.fields)
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         .map((b: any) => ({
           previewSrc: contentfulImage(b, {
             height: 154,
