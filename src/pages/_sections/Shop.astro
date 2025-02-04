@@ -5,6 +5,11 @@ import ProductCard from './_ProductCard'
 
 const sujet2023: CartItem = { article: 'PGL Sujet 2023' }
 const sujet2024: CartItem = { article: 'PGL Sujet 2024' }
+const fasiPin: CartItem = {
+  article: 'Fasi-Pin 2025',
+  description: '40 x 30 mm / Silber',
+  price: 10,
+}
 const jubiPin: CartItem = {
   article: 'Jubi-Pin',
   description: '35 x 35 mm / Silber',
@@ -14,6 +19,11 @@ const pglPin: CartItem = {
   article: 'PGL-Pin',
   description: '25 x 21 mm / Silber',
   price: 10,
+}
+const pinPackage: CartItem = {
+  article: 'Pin-Package',
+  description: 'Alle drei Pins zusammen',
+  price: 25,
 }
 const halleluja: CartItem = {
   article: 'CD "Halleluja" (2016)',
@@ -33,6 +43,27 @@ const chianti: CartItem = {
       <h1>Shop</h1>
       <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
         <ProductCard
+          item={fasiPin}
+          vorschaubild="/fasi-pin.webp"
+          client:visible>
+          <span>{fasiPin.description}</span>
+        </ProductCard>
+        <ProductCard
+          item={jubiPin}
+          vorschaubild="/jubi-pin.webp"
+          client:visible>
+          <span>{jubiPin.description}</span>
+        </ProductCard>
+        <ProductCard item={pglPin} vorschaubild="/pgl-pin.webp" client:visible>
+          <span>{pglPin.description}</span>
+        </ProductCard>
+        <ProductCard
+          item={pinPackage}
+          vorschaubild="/all-pins.webp"
+          client:visible>
+          <span>{pinPackage.description}</span>
+        </ProductCard>
+        <ProductCard
           item={sujet2023}
           vorschaubild="/sujet-2023.webp"
           client:visible>
@@ -51,15 +82,6 @@ const chianti: CartItem = {
               href="mailto:info@pgl.ch">info@pgl.ch</a
             >.</span
           >
-        </ProductCard>
-        <ProductCard
-          item={jubiPin}
-          vorschaubild="/jubi-pin.webp"
-          client:visible>
-          <span>{jubiPin.description}</span>
-        </ProductCard>
-        <ProductCard item={pglPin} vorschaubild="/pgl-pin.webp" client:visible>
-          <span>{pglPin.description}</span>
         </ProductCard>
         <ProductCard
           item={halleluja}
