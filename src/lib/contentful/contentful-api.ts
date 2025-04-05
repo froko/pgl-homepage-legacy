@@ -89,6 +89,11 @@ export interface InternDokument {
   dokument: Asset
 }
 
+export interface InternEinladung {
+  titel: EntryFields.Symbol
+  dokument: Asset
+}
+
 export interface InternNewsletterItem {
   titel: EntryFields.Symbol
   dokument: Asset
