@@ -17,6 +17,7 @@ const mediaItems = (await fetchFromContentful<MediaItem>('media')).filter(
       <article>
         <ArrowLink style="mt-12" href="/#media" content="Zurück zur Galerie" />
         <h1>Vergangene Jahre</h1>
+        <BilderArchivJahr jahr={2025} media={mediaItems} />
         <BilderArchivJahr jahr={2024} media={mediaItems} />
         <BilderArchivJahr jahr={2023} media={mediaItems} />
         <BilderArchivJahr jahr={2022} media={mediaItems} />
