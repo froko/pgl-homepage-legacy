@@ -5,6 +5,7 @@ import ProductCard from './_ProductCard'
 
 const sujet2023: CartItem = { article: 'PGL Sujet 2023' }
 const sujet2024: CartItem = { article: 'PGL Sujet 2024' }
+const sujet2025: CartItem = { article: 'PGL Sujet 2025' }
 const fasiPin: CartItem = {
   article: 'Fasi-Pin 2025',
   description: '40 x 30 mm / Silber',
@@ -23,7 +24,7 @@ const pglPin: CartItem = {
 const pinPackage: CartItem = {
   article: 'Pin-Package',
   description: 'Alle drei Pins zusammen',
-  price: 25,
+  price: 20,
 }
 const halleluja: CartItem = {
   article: 'CD "Halleluja" (2016)',
@@ -83,6 +84,18 @@ const chianti: CartItem = {
             >.</span
           >
         </ProductCard>
+        <ProductCard
+          item={sujet2025}
+          vorschaubild="/sujet-2025.webp"
+          client:visible>
+          <span class="text-base"
+            >Nur gesamtes Ensemble. Kein Einzelverkauf. Kontaktaufnahme via <a
+              href="mailto:info@pgl.ch">info@pgl.ch</a
+            >.</span
+          >
+        </ProductCard>
+      </div>
+      <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
         <ProductCard
           item={halleluja}
           vorschaubild="/halleluja.webp"
