@@ -14,7 +14,7 @@
     "@astrojs/preact": "^4.0.4",
     "@astrojs/tailwind": "^5.1.5",
     "@contentful/rich-text-html-renderer": "^17.0.0",
-    "@nanostores/persistent": "^0.10.2",
+    "@nanostores/persistent": "^1.0.0",
     "@nanostores/preact": "^0.5.2",
     "@tailwindcss/typography": "^0.5.16",
     "astro": "^5.3.1",
