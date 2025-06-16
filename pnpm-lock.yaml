@@ -10,10 +10,10 @@ importers:
     dependencies:
       '@astrojs/preact':
         specifier: ^4.0.4
-        version: 4.1.0(@babel/core@7.27.4)(@types/node@22.15.31)(jiti@1.21.7)(preact@10.26.9)(yaml@2.8.0)
+        version: 4.1.0(@babel/core@7.27.4)(@types/node@22.15.32)(jiti@1.21.7)(preact@10.26.9)(yaml@2.8.0)
       '@astrojs/tailwind':
         specifier: ^6.0.0
-        version: 6.0.2(astro@5.9.3(@types/node@22.15.31)(jiti@1.21.7)(rollup@4.43.0)(typescript@5.8.3)(yaml@2.8.0))(tailwindcss@3.4.17)
+        version: 6.0.2(astro@5.9.3(@types/node@22.15.32)(jiti@1.21.7)(rollup@4.43.0)(typescript@5.8.3)(yaml@2.8.0))(tailwindcss@3.4.17)
       '@contentful/rich-text-html-renderer':
         specifier: ^17.0.0
         version: 17.0.1
@@ -28,7 +28,7 @@ importers:
         version: 0.5.16(tailwindcss@3.4.17)
       astro:
         specifier: ^5.3.1
-        version: 5.9.3(@types/node@22.15.31)(jiti@1.21.7)(rollup@4.43.0)(typescript@5.8.3)(yaml@2.8.0)
+        version: 5.9.3(@types/node@22.15.32)(jiti@1.21.7)(rollup@4.43.0)(typescript@5.8.3)(yaml@2.8.0)
       auth0-js:
         specifier: ^9.28.0
         version: 9.28.0
@@ -59,7 +59,7 @@ importers:
         version: 9.21.6
       '@types/node':
         specifier: ^22.13.5
-        version: 22.15.31
+        version: 22.15.32
       basic-ftp:
         specifier: ^5.0.5
         version: 5.0.5
@@ -842,8 +842,8 @@ packages:
   '@types/nlcst@2.0.3':
     resolution: {integrity: sha512-vSYNSDe6Ix3q+6Z7ri9lyWqgGhJTmzRjZRqyq15N0Z/1/UnVsno9G/N40NBijoYx2seFDIl0+B2mgAb9mezUCA==}
 
-  '@types/node@22.15.31':
-    resolution: {integrity: sha512-jnVe5ULKl6tijxUhvQeNbQG/84fHfg+yMak02cT8QVhBx/F05rAVxCGBYYTh2EKz22D6JF5ktXuNwdx7b9iEGw==}
+  '@types/node@22.15.32':
+    resolution: {integrity: sha512-3jigKqgSjsH6gYZv2nEsqdXfZqIFGAV36XYYjf9KGZ3PSG+IhLecqPnI310RvjutyMwifE2hhhNEklOUrvx/wA==}
 
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
@@ -3067,13 +3067,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/preact@4.1.0(@babel/core@7.27.4)(@types/node@22.15.31)(jiti@1.21.7)(preact@10.26.9)(yaml@2.8.0)':
+  '@astrojs/preact@4.1.0(@babel/core@7.27.4)(@types/node@22.15.32)(jiti@1.21.7)(preact@10.26.9)(yaml@2.8.0)':
     dependencies:
-      '@preact/preset-vite': 2.10.1(@babel/core@7.27.4)(preact@10.26.9)(vite@6.3.5(@types/node@22.15.31)(jiti@1.21.7)(yaml@2.8.0))
+      '@preact/preset-vite': 2.10.1(@babel/core@7.27.4)(preact@10.26.9)(vite@6.3.5(@types/node@22.15.32)(jiti@1.21.7)(yaml@2.8.0))
       '@preact/signals': 2.2.0(preact@10.26.9)
       preact: 10.26.9
       preact-render-to-string: 6.5.13(preact@10.26.9)
-      vite: 6.3.5(@types/node@22.15.31)(jiti@1.21.7)(yaml@2.8.0)
+      vite: 6.3.5(@types/node@22.15.32)(jiti@1.21.7)(yaml@2.8.0)
     transitivePeerDependencies:
       - '@babel/core'
       - '@types/node'
@@ -3093,9 +3093,9 @@ snapshots:
     dependencies:
       prismjs: 1.30.0
 
-  '@astrojs/tailwind@6.0.2(astro@5.9.3(@types/node@22.15.31)(jiti@1.21.7)(rollup@4.43.0)(typescript@5.8.3)(yaml@2.8.0))(tailwindcss@3.4.17)':
+  '@astrojs/tailwind@6.0.2(astro@5.9.3(@types/node@22.15.32)(jiti@1.21.7)(rollup@4.43.0)(typescript@5.8.3)(yaml@2.8.0))(tailwindcss@3.4.17)':
     dependencies:
-      astro: 5.9.3(@types/node@22.15.31)(jiti@1.21.7)(rollup@4.43.0)(typescript@5.8.3)(yaml@2.8.0)
+      astro: 5.9.3(@types/node@22.15.32)(jiti@1.21.7)(rollup@4.43.0)(typescript@5.8.3)(yaml@2.8.0)
       autoprefixer: 10.4.21(postcss@8.5.5)
       postcss: 8.5.5
       postcss-load-config: 4.0.2(postcss@8.5.5)
@@ -3568,18 +3568,18 @@ snapshots:
 
   '@pkgr/core@0.2.7': {}
 
-  '@preact/preset-vite@2.10.1(@babel/core@7.27.4)(preact@10.26.9)(vite@6.3.5(@types/node@22.15.31)(jiti@1.21.7)(yaml@2.8.0))':
+  '@preact/preset-vite@2.10.1(@babel/core@7.27.4)(preact@10.26.9)(vite@6.3.5(@types/node@22.15.32)(jiti@1.21.7)(yaml@2.8.0))':
     dependencies:
       '@babel/core': 7.27.4
       '@babel/plugin-transform-react-jsx': 7.27.1(@babel/core@7.27.4)
       '@babel/plugin-transform-react-jsx-development': 7.27.1(@babel/core@7.27.4)
-      '@prefresh/vite': 2.4.7(preact@10.26.9)(vite@6.3.5(@types/node@22.15.31)(jiti@1.21.7)(yaml@2.8.0))
+      '@prefresh/vite': 2.4.7(preact@10.26.9)(vite@6.3.5(@types/node@22.15.32)(jiti@1.21.7)(yaml@2.8.0))
       '@rollup/pluginutils': 4.2.1
       babel-plugin-transform-hook-names: 1.0.2(@babel/core@7.27.4)
       debug: 4.4.1
       kolorist: 1.8.0
-      vite: 6.3.5(@types/node@22.15.31)(jiti@1.21.7)(yaml@2.8.0)
-      vite-prerender-plugin: 0.5.10(vite@6.3.5(@types/node@22.15.31)(jiti@1.21.7)(yaml@2.8.0))
+      vite: 6.3.5(@types/node@22.15.32)(jiti@1.21.7)(yaml@2.8.0)
+      vite-prerender-plugin: 0.5.10(vite@6.3.5(@types/node@22.15.32)(jiti@1.21.7)(yaml@2.8.0))
     transitivePeerDependencies:
       - preact
       - supports-color
@@ -3599,7 +3599,7 @@ snapshots:
 
   '@prefresh/utils@1.2.0': {}
 
-  '@prefresh/vite@2.4.7(preact@10.26.9)(vite@6.3.5(@types/node@22.15.31)(jiti@1.21.7)(yaml@2.8.0))':
+  '@prefresh/vite@2.4.7(preact@10.26.9)(vite@6.3.5(@types/node@22.15.32)(jiti@1.21.7)(yaml@2.8.0))':
     dependencies:
       '@babel/core': 7.27.4
       '@prefresh/babel-plugin': 0.5.1
@@ -3607,7 +3607,7 @@ snapshots:
       '@prefresh/utils': 1.2.0
       '@rollup/pluginutils': 4.2.1
       preact: 10.26.9
-      vite: 6.3.5(@types/node@22.15.31)(jiti@1.21.7)(yaml@2.8.0)
+      vite: 6.3.5(@types/node@22.15.32)(jiti@1.21.7)(yaml@2.8.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -3741,7 +3741,7 @@ snapshots:
 
   '@types/fontkit@2.0.8':
     dependencies:
-      '@types/node': 22.15.31
+      '@types/node': 22.15.32
 
   '@types/hast@3.0.4':
     dependencies:
@@ -3759,7 +3759,7 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
 
-  '@types/node@22.15.31':
+  '@types/node@22.15.32':
     dependencies:
       undici-types: 6.21.0
 
@@ -3926,7 +3926,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  astro@5.9.3(@types/node@22.15.31)(jiti@1.21.7)(rollup@4.43.0)(typescript@5.8.3)(yaml@2.8.0):
+  astro@5.9.3(@types/node@22.15.32)(jiti@1.21.7)(rollup@4.43.0)(typescript@5.8.3)(yaml@2.8.0):
     dependencies:
       '@astrojs/compiler': 2.12.2
       '@astrojs/internal-helpers': 0.6.1
@@ -3981,8 +3981,8 @@ snapshots:
       unist-util-visit: 5.0.0
       unstorage: 1.16.0
       vfile: 6.0.3
-      vite: 6.3.5(@types/node@22.15.31)(jiti@1.21.7)(yaml@2.8.0)
-      vitefu: 1.0.6(vite@6.3.5(@types/node@22.15.31)(jiti@1.21.7)(yaml@2.8.0))
+      vite: 6.3.5(@types/node@22.15.32)(jiti@1.21.7)(yaml@2.8.0)
+      vitefu: 1.0.6(vite@6.3.5(@types/node@22.15.32)(jiti@1.21.7)(yaml@2.8.0))
       xxhash-wasm: 1.1.0
       yargs-parser: 21.1.1
       yocto-spinner: 0.2.3
@@ -6181,7 +6181,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
 
-  vite-prerender-plugin@0.5.10(vite@6.3.5(@types/node@22.15.31)(jiti@1.21.7)(yaml@2.8.0)):
+  vite-prerender-plugin@0.5.10(vite@6.3.5(@types/node@22.15.32)(jiti@1.21.7)(yaml@2.8.0)):
     dependencies:
       kolorist: 1.8.0
       magic-string: 0.30.17
@@ -6189,9 +6189,9 @@ snapshots:
       simple-code-frame: 1.3.0
       source-map: 0.7.4
       stack-trace: 1.0.0-pre2
-      vite: 6.3.5(@types/node@22.15.31)(jiti@1.21.7)(yaml@2.8.0)
+      vite: 6.3.5(@types/node@22.15.32)(jiti@1.21.7)(yaml@2.8.0)
 
-  vite@6.3.5(@types/node@22.15.31)(jiti@1.21.7)(yaml@2.8.0):
+  vite@6.3.5(@types/node@22.15.32)(jiti@1.21.7)(yaml@2.8.0):
     dependencies:
       esbuild: 0.25.5
       fdir: 6.4.6(picomatch@4.0.2)
@@ -6200,14 +6200,14 @@ snapshots:
       rollup: 4.43.0
       tinyglobby: 0.2.14
     optionalDependencies:
-      '@types/node': 22.15.31
+      '@types/node': 22.15.32
       fsevents: 2.3.3
       jiti: 1.21.7
       yaml: 2.8.0
 
-  vitefu@1.0.6(vite@6.3.5(@types/node@22.15.31)(jiti@1.21.7)(yaml@2.8.0)):
+  vitefu@1.0.6(vite@6.3.5(@types/node@22.15.32)(jiti@1.21.7)(yaml@2.8.0)):
     optionalDependencies:
-      vite: 6.3.5(@types/node@22.15.31)(jiti@1.21.7)(yaml@2.8.0)
+      vite: 6.3.5(@types/node@22.15.32)(jiti@1.21.7)(yaml@2.8.0)
 
   web-namespaces@2.0.1: {}
 
