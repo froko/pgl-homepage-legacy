@@ -3,6 +3,11 @@ import type { Advertisement } from '.'
 export const ads: Advertisement[] = [
   { src: 'be-partner.png', alt: 'be-partner', href: 'https://bepartner.ch/' },
   {
+    src: 'braui.png',
+    alt: 'braui',
+    href: 'https://www.rathausbrauerei.ch/',
+  },
+  {
     src: 'brueggli.png',
     alt: 'brueggli',
     href: 'https://www.motelbrueggli.ch/',
